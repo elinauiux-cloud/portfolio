@@ -189,9 +189,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
-/* Hidden sections by default */
-.hidden-content{display:none}
-.hidden-content.visible{display:block}
+/* Hidden sections logic */
+.hidden-section {
+    opacity: 0;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+.hidden-section.visible {
+    opacity: 1;
+    pointer-events: auto;
+    max-height: none; /* Allow full height */
+    overflow: visible;
+}
 
 @media (min-width:760px){
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -241,6 +252,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
       <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
       <div class="hero-ctas">
+        <!-- Changed to button to trigger JS -->
         <button id="showWorkBtn" class="btn btn-acid">View my work ↓</button>
         <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
       </div>
@@ -251,7 +263,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </section>
 
-  <div class="hidden-content" id="fullContent">
+  <!-- Wrapped all content below hero in this div -->
+  <div class="hidden-section" id="fullContent">
     <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
 
     <section id="work">
@@ -369,6 +382,8 @@ const landing=[
  {n:"Subliminator",img:"Subliminator.png",d:"A print-on-demand and dropshipping platform for designing and selling custom all-over-print apparel and home goods.",tags:["E-commerce","POD","Landing page"]}
 ];
 const $=s=>document.querySelector(s);
+
+// Generate HTML immediately so it exists in DOM
 $("#cases").innerHTML=cases.map((c,i)=>`
  <article class="case reveal">
   <div class="case-media" data-open="${c.img}" data-title="${c.n}" role="button" tabindex="0" aria-label="Open ${c.n} case study">
@@ -380,9 +395,10 @@ $("#cases").innerHTML=cases.map((c,i)=>`
    <p class="desc">${c.d}</p>
    <ul class="steps"><li><b>Research</b><span>${c.r}</span></li><li><b>Solution</b><span>${c.s}</span></li><li><b>Outcome</b><span>${c.o}</span></li></ul>
    <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
-   <button class="btn btn-acid btn-sm" data-open="${c.img}" data-title="${c.n}">Open case study </button>
+   <button class="btn btn-acid btn-sm" data-open="${c.img}" data-title="${c.n}">Open case study ↗</button>
   </div>
  </article>`).join("");
+
 $("#landing").innerHTML=landing.map(l=>`
  <article class="card reveal">
   <div class="thumb" data-open="${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''} role="button" tabindex="0" aria-label="Open ${l.n}"><img ${l.wide?'style="object-position:left center"':''} src="${l.img}" alt="${l.n} landing page" loading="lazy"/></div>
@@ -404,15 +420,23 @@ $(".ticker-track").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).joi
 const rot=["design","build","launch","research","ship"];let ri=0;
 setInterval(()=>{ri=(ri+1)%rot.length;$(".rotator").innerHTML=`<span>${rot[ri]}</span>`},2200);
 
-// Show full content on CTA click
+// --- LOGIC TO SHOW CONTENT ON CLICK ---
 $("#showWorkBtn").addEventListener("click",()=>{
   const content=$("#fullContent");
+  
+  // 1. Make the container visible
   content.classList.add("visible");
+  
+  // 2. Scroll to it smoothly
   setTimeout(()=>{
     content.scrollIntoView({behavior:"smooth"});
-    // Trigger reveal animations
-    document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));
-  },100);
+    
+    // 3. Force reveal animations for all elements inside
+    // We use a slight delay to ensure the browser has painted the visibility change
+    document.querySelectorAll(".reveal").forEach(el=>{
+        el.classList.add("in");
+    });
+  }, 100);
 });
 
 // menu
@@ -432,7 +456,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb();if(e.key==
 lb.querySelector(".lb-close").onclick=closeLb;
 lb.addEventListener("click",e=>{if(e.target===lb||e.target===lbScroll)closeLb()});
 
-// reveal observer
+// reveal observer (for natural scrolling later)
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
