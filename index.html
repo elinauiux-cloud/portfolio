@@ -102,9 +102,44 @@ section{padding:clamp(80px,12vw,150px) 0}
 /* case cards */
 .case{display:grid;gap:30px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
 .case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);cursor:zoom-in;min-height:200px}
-.case-media::after{content:"VIEW CASE ↗";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em;z-index:2}
-.case-media img{width:100%;height:auto;display:block}
+
+/* UPDATED: Case Media now has fixed aspect ratio for Hero view */
+.case-media{
+  position:relative;
+  overflow:hidden;
+  background:var(--media);
+  border:1px solid var(--line);
+  /* Force a landscape/hero shape (16:10) instead of full height */
+  aspect-ratio: 16/10; 
+  cursor:zoom-in;
+}
+.case-media::after{
+  content:"VIEW CASE ↗";
+  position:absolute;
+  left:14px;bottom:14px;
+  background:var(--acid);
+  color:var(--acid-ink);
+  padding:9px 14px;
+  font-family:var(--mono);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  z-index:2;
+  pointer-events: none; /* Let clicks pass through to container */
+}
+/* UPDATED: Image covers the hero box perfectly */
+.case-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover; /* Crops the image to fit the box */
+  object-position: top center; /* Shows the top (hero) part */
+  display:block;
+  transition: transform 0.6s ease;
+}
+.case-media:hover img {
+  transform: scale(1.05);
+}
+
 .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--acid);text-transform:uppercase}
 .case h3{font-size:clamp(2.2rem,6.5vw,3.8rem);margin:10px 0 14px}
 .case .desc{color:var(--dim);font-size:1.02rem}
@@ -200,7 +235,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .hidden-section.visible {
     opacity: 1;
     pointer-events: auto;
-    max-height: none; /* Allow full height */
+    max-height: none;
     overflow: visible;
 }
 
@@ -432,7 +467,6 @@ $("#showWorkBtn").addEventListener("click",()=>{
     content.scrollIntoView({behavior:"smooth"});
     
     // 3. Force reveal animations for all elements inside
-    // We use a slight delay to ensure the browser has painted the visibility change
     document.querySelectorAll(".reveal").forEach(el=>{
         el.classList.add("in");
     });
