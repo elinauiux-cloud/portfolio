@@ -1,1 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elina Vardanyan — UI/UX & Shopify Designer-Developer</title>
+<meta name="description" content="Portfolio of Elina Vardanyan: UI/UX product design case studies, landing pages and Shopify store development." />
+<meta property="og:title" content="Elina Vardanyan — UI/UX & Shopify Designer-Developer" />
+<meta property="og:description" content="Product design case studies, landing pages and Shopify stores." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0a0a0a; --ink:#f4f4f0; --dim:#9a9a92; --line:#2a2a2a;
+  --acid:#d9ff3d; --acid-ink:#0a0a0a;
+  --work-bg:#f7f7f5; --work-ink:#111111; --work-dim:#555550; --work-line:#d2d2cd;
+  --media:#141414; --card-bg:#101010; --thumb-bg:#181818;
+  --sans:"Archivo",system-ui,sans-serif; --mono:"Space Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-weight:900;line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+em{font-style:normal;color:var(--acid)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acid);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--acid)}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.logo{font-weight:900;font-size:1.15rem;text-decoration:none;text-transform:uppercase;letter-spacing:-.02em}
+.logo span{color:var(--acid)}
+.nav ul{display:none;list-style:none;gap:4px}
+.nav ul a{text-decoration:none;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;transition:color .25s}
+.nav ul a:hover{color:var(--acid)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .25s,background .25s,color .25s,border-color .25s}
+.btn-acid{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
+.btn-acid:hover{background:var(--ink);border-color:var(--ink);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--acid)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--acid)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:.72rem}
+.burger{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:currentColor;position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.menu-open .burger span{background:transparent}
+.menu-open .burger span::before{top:0;transform:rotate(45deg)}
+.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:40px 28px;gap:6px;transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,0,.2,1)}
+.menu-open .mobile-menu{transform:none}
+.mobile-menu a{font-weight:900;font-size:2.6rem;text-transform:uppercase;text-decoration:none;line-height:1.2;letter-spacing:-.02em}
+.mobile-menu a:hover{color:var(--acid)}
+.nav-cta{display:none}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 40%,black 30%,transparent 75%)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,11vw,8.2rem);margin:24px 0 28px}
+.rotator{display:inline-block;position:relative;color:var(--acid);min-width:4ch}
+.rotator span{display:inline-block;animation:wordIn .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes wordIn{from{opacity:0;transform:translateY(60%);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.hero p.lead{font-size:clamp(1.02rem,2.4vw,1.25rem);max-width:560px;color:var(--dim)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:52px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.dot{display:inline-block;width:9px;height:9px;background:var(--acid);margin-right:10px;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* ticker */
+.ticker{background:var(--acid);color:var(--acid-ink);padding:16px 0;overflow:hidden;border-block:1px solid var(--acid)}
+.ticker-track{display:flex;width:max-content;animation:scroll 32s linear infinite}
+.ticker-track span{font-weight:900;font-size:clamp(1.1rem,2.6vw,1.7rem);text-transform:uppercase;letter-spacing:-.01em;padding:0 20px;white-space:nowrap}
+.ticker-track span::after{content:"✦";margin-left:40px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:clamp(80px,12vw,150px) 0}
+.sec-head{display:grid;gap:18px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(2.6rem,8vw,5.4rem)}
+.sec-head p{color:var(--dim);max-width:520px}
+
+.group{margin-bottom:100px}
+.group-title{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:44px;color:var(--ink)}
+.group-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.group-title i{font-style:normal;color:var(--acid)}
+
+/* Light editorial work section; the store and remaining page stay dark. */
+#work{background:var(--work-bg);color:var(--work-ink);--bg:var(--work-bg);--ink:var(--work-ink);--dim:var(--work-dim);--line:var(--work-line);--media:var(--work-line);--card-bg:var(--work-bg);--thumb-bg:var(--work-line)}
+#work .eyebrow,#work .group-title i,#work .num,#work .steps b{color:var(--ink)}
+#work em{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:.12em;text-underline-offset:.08em}
+#work .group:last-child{margin-bottom:0}
+#shopify .group{margin-bottom:0}
+
+/* case cards */
+.case{display:grid;gap:30px;align-items:center;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
+.case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);aspect-ratio:4/3.2;cursor:zoom-in}
+.case-media::after{content:"VIEW CASE ↗";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em}
+.case-media .scrollshot{position:absolute;inset:22px 16% 0;overflow:hidden;border:1px solid var(--line);border-bottom:none}
+.case-media .scrollshot img{width:100%;height:auto;transition:transform 9s ease-in-out}
+.num{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--acid);text-transform:uppercase}
+.case h3{font-size:clamp(2.2rem,6.5vw,3.8rem);margin:10px 0 14px}
+.case .desc{color:var(--dim);font-size:1.02rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0}
+.tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--line);color:var(--dim)}
+.steps{list-style:none;display:grid;gap:12px;margin:22px 0 28px}
+.steps li{display:grid;grid-template-columns:96px 1fr;gap:14px;font-size:.93rem;padding-top:12px;border-top:1px solid var(--line)}
+.steps b{font-family:var(--mono);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acid);padding-top:3px}
+.steps span{color:var(--dim)}
+
+/* landing grid */
+.grid{display:grid;gap:20px}
+.card{background:var(--card-bg);border:1px solid var(--line);padding:14px;transition:transform .35s,border-color .35s,box-shadow .35s}
+.card:hover{transform:translate(-3px,-3px);border-color:var(--acid);box-shadow:6px 6px 0 var(--acid)}
+.card .thumb{overflow:hidden;aspect-ratio:16/10;background:var(--thumb-bg);cursor:zoom-in;position:relative;border:1px solid var(--line)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s}
+.card:hover .thumb img{transform:scale(1.04)}
+.card-body{padding:20px 6px 8px}
+.card h3{font-size:1.7rem;margin-bottom:8px}
+.card p{color:var(--dim);font-size:.95rem}
+.card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+
+/* shopify */
+.shop{display:grid;gap:34px;background:var(--acid);color:var(--acid-ink);padding:clamp(24px,5vw,60px);position:relative;border:1px solid var(--acid)}
+.shop .eyebrow{color:var(--acid-ink)}
+.shop .eyebrow::before{background:var(--acid-ink)}
+.shop h3{font-size:clamp(2.6rem,8vw,5rem)}
+.shop p{color:#2c2c22}
+.shop .tag{border-color:#b8d92e;color:#2c2c22}
+.shop .btn{border-color:var(--acid-ink);background:var(--acid-ink);color:var(--acid)}
+.shop .btn:hover{background:transparent;color:var(--acid-ink);box-shadow:4px 4px 0 var(--acid-ink)}
+.shop-frame{position:relative;border:10px solid var(--acid-ink);background:var(--acid-ink);overflow:hidden;aspect-ratio:4/4.6;cursor:zoom-in;box-shadow:14px 14px 0 rgba(10,10,10,.25)}
+.shop-frame img{width:100%;height:auto;animation:shopScroll 24s ease-in-out infinite alternate}
+@keyframes shopScroll{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 460px))}}
+.shop-frame::after{content:"AUTO-SCROLLING PREVIEW";position:absolute;left:12px;bottom:12px;background:var(--acid);color:var(--acid-ink);padding:7px 12px;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.14em}
+
+/* services */
+#services{border-top:1px solid var(--line)}
+.services{display:grid;gap:16px}
+.service{display:flex;flex-direction:column;border:1px solid var(--line);padding:clamp(24px,3vw,36px);background:#101010;transition:transform .3s,border-color .3s,box-shadow .3s}
+.service:hover{transform:translate(-3px,-3px);border-color:var(--acid);box-shadow:6px 6px 0 var(--acid)}
+.service .snum{font-family:var(--mono);font-weight:700;font-size:clamp(2.6rem,6vw,4rem);color:var(--acid);line-height:1}
+.service h3{font-size:clamp(1.6rem,3vw,2.1rem);margin:22px 0 12px}
+.service p{color:var(--dim);margin-bottom:22px}
+.service ul{list-style:none;display:grid;gap:10px;margin-bottom:30px;flex:1}
+.service li{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding-top:10px;border-top:1px solid var(--line);display:flex;gap:10px}
+.service li::before{content:"→";color:var(--acid)}
+.service .btn{align-self:flex-start}
+
+/* skills */
+#skills{border-top:1px solid var(--line)}
+.skills{display:grid;gap:16px}
+.skill-box{border:1px solid var(--line);padding:30px;background:#101010;transition:border-color .3s}
+.skill-box:hover{border-color:var(--acid)}
+.skill-box h3{font-size:1.35rem;margin-bottom:20px;display:flex;gap:12px;align-items:center}
+.skill-box h3 i{font-style:normal;color:var(--acid);font-family:var(--mono);font-size:1rem}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;padding:9px 14px;border:1px solid var(--line);color:var(--dim);transition:.25s}
+.pill:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
+
+/* contact */
+.contact{text-align:center;border-top:1px solid var(--line)}
+.contact h2{font-size:clamp(3rem,13vw,9rem);margin:22px 0 34px}
+.contact .mail{font-weight:800;font-size:clamp(1.15rem,4.5vw,2.2rem);text-decoration:none;border-bottom:3px solid var(--acid);word-break:break-all;text-transform:lowercase;letter-spacing:-.01em}
+.contact .mail:hover{color:var(--acid)}
+.contact .row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:44px}
+footer{border-top:1px solid var(--line);padding:28px 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,5,5,.95);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.lb-bar h4{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+.lb-close{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:.25s}
+.lb-close:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
+.lb-scroll{flex:1;overflow-y:auto;padding:24px 12px 60px;-webkit-overflow-scrolling:touch}
+.lb-scroll img{margin:0 auto;width:auto;max-width:min(1200px,100%);height:auto;border:1px solid var(--line)}
+.lb-scroll.wide img{max-width:min(1400px,100%)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (min-width:760px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .skills{grid-template-columns:repeat(3,1fr)}
+  .services{grid-template-columns:repeat(3,1fr)}
+  .case{grid-template-columns:1.15fr 1fr;gap:60px}
+  .case:nth-child(even) .case-media{order:2}
+  .shop{grid-template-columns:1.1fr 1fr;align-items:center}
+}
+@media (min-width:960px){
+  .nav ul{display:flex}.burger{display:none}.nav-cta{display:inline-flex}
+  .mobile-menu{display:none}
+}
+@media (hover:hover) and (pointer:fine){
+  .case-media:hover .scrollshot img{transform:translateY(calc(-100% + 380px))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">Elina<span>©</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:elina.uiux@gmail.com" class="btn btn-acid btn-sm nav-cta">Hire me</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" aria-label="Mobile">
+  <a href="#work">Work</a>
+  <a href="#services">Services</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+  <a href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">UI/UX & Shopify Designer-Developer</span>
+      <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
+      <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-acid">View my work ↓</a>
+        <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="hero-meta">
+        <span><span class="dot"></span>Available for new roles</span>
+        <span>Full-time & freelance</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Selected work</span>
+        <h2>Things I've<br/><em>built</em> from scratch.</h2>
+        <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
+      </div>
+
+      <!-- CASE STUDIES -->
+      <div class="group">
+        <h3 class="group-title"><i>01 /</i> Case Studies</h3>
+        <div id="cases"></div>
+      </div>
+
+      <!-- LANDING -->
+      <div class="group">
+        <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
+        <div class="grid" id="landing"></div>
+      </div>
+
+      <!-- SHOPIFY -->
+    </div>
+  </section>
+
+  <section id="shopify">
+    <div class="wrap">
+      <div class="group">
+        <h3 class="group-title"><i>03 /</i> Shopify Store</h3>
+        <div class="shop reveal">
+          <div>
+            <span class="eyebrow">Shopify · Women's activewear</span>
+            <h3 style="margin:16px 0 18px">Neverlate</h3>
+            <p>Neverlate creates women's activewear for fitness, yoga, Pilates, running, dance and everyday movement — combining thoughtful design, functionality and contemporary style.</p>
+            <div class="tags">
+              <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
+            </div>
+            <button class="btn" data-open="images/neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
+          </div>
+          <div class="shop-frame" data-open="images/neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
+            <img src="images/neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What I offer</span>
+        <h2>Services</h2>
+      </div>
+      <div class="services">
+        <article class="service reveal"><span class="snum">01</span><h3>Shopify store setup</h3><p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p><ul><li>Store setup & theme customization</li><li>Custom Liquid sections</li><li>Figma → Shopify builds</li><li>App integration</li><li>Product page optimization</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+        <article class="service reveal"><span class="snum">02</span><h3>UX research & strategy</h3><p>Clear answers about your users before a single screen is designed.</p><ul><li>User research & personas</li><li>Empathy mapping</li><li>Customer journey maps</li><li>User flows</li><li>Information architecture</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+        <article class="service reveal"><span class="snum">03</span><h3>UI design & landing pages</h3><p>Sharp, responsive interfaces and landing pages built to convert.</p><ul><li>Wireframes & prototypes</li><li>UI design & design systems</li><li>Responsive web design</li><li>Conversion-focused landing pages</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What I bring</span>
+        <h2>Skills & <em>tools</em></h2>
+      </div>
+      <div class="skills">
+        <div class="skill-box reveal"><h3><i>[01]</i>Shopify & E-commerce</h3><div class="pills">
+          <span class="pill">Store Setup & Development</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma → Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product & Landing Page Optimization</span><span class="pill">App Integration</span><span class="pill">Product Listings & Store Management</span><span class="pill">Mobile-First Design</span>
+        </div></div>
+        <div class="skill-box reveal"><h3><i>[02]</i>UI/UX & Product</h3><div class="pills">
+          <span class="pill">User Research & Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Customer Journey Mapping</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing & Prototyping</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Web Design</span>
+        </div></div>
+        <div class="skill-box reveal"><h3><i>[03]</i>Tools</h3><div class="pills">
+          <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="eyebrow reveal">Open to full-time & freelance</span>
+      <h2 class="reveal">Let's work <em>together.</em></h2>
+      <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
+      <div class="row reveal">
+        <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Elina Vardanyan</span><span>Telegram — @elinavardanyan</span></div></footer>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Project preview">
+  <div class="lb-bar"><h4></h4><button class="lb-close" aria-label="Close">✕</button></div>
+  <div class="lb-scroll"><img alt="" /></div>
+</div>
+
+<script>
+const cases=[
+ {n:"Pairbe",img:"pairbe.webp",type:"Mobile app · Social",d:"A social network app that uses geolocation and psychological tests to connect like-minded people nearby.",tags:["User research","Personas","User flows","Mobile UI"],r:"Interviews and personas showed that people want real connection, not endless swiping.",s:"Personality tests plus location-based matching, wrapped in a warm and simple UI.",o:"A clickable prototype and a design system ready for development."},
+ {n:"Stufizz",img:"stufizz.webp",type:"Web & app · Marketplace",d:"A bartering platform that lets users connect and trade items within their local communities.",tags:["Journey mapping","IA","Wireframes","Prototype"],r:"Mapped how trust forms between strangers trading face to face.",s:"Clear listings, swap offers and community profiles that build trust.",o:"A complete trading flow, from listing an item to a confirmed swap."},
+ {n:"Inflow Music",img:"inflow-music.webp",type:"Web3 · Music",d:"A social token platform that lets artists launch their own tokens and NFTs and build closer ties with fans.",tags:["Web3 UX","Empathy maps","Dashboard","UI"],r:"Artists found crypto tools intimidating and fans didn't know what they were buying.",s:"Plain-language token launches and fan-first artist pages.",o:"A simpler Web3 experience for both artists and fans."},
+ {n:"Moody",img:"moody.webp",type:"AI · Music player",d:"An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.",tags:["AI UX","Concept","Interaction","UI"],r:"People search for music by mood far more often than by title.",s:"A conversational prompt plus mood-reactive visuals.",o:"A new kind of player, plus a dedicated landing page."},
+ {n:"CryptoGate",img:"cryptogate.webp",type:"Fintech · Crypto",d:"A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.",tags:["Fintech UX","Security flows","Design system","Responsive"],r:"Beginners feared mistakes; experts wanted speed.",s:"Step-by-step transactions with clear confirmations and trust signals.",o:"Confident, error-proof deposit and withdrawal flows."}
+];
+const landing=[
+ {n:"Space Goblin",img:"space-goblin.webp",d:"An NFT digital art project introducing a unique collection of character cards.",tags:["NFT","Landing page","Illustration"]},
+ {n:"Moody",img:"moody.webp",full:"moody-landing.webp",d:"The landing page for Moody, the AI-native music player.",tags:["AI","Landing page","Live"],live:"https://elinauiux-cloud.github.io/Moody_Landing-Page/"},
+ {n:"KIMONO",img:"kimono.png",full:"kimono-live.webp",d:"An exhibition of Japanese textile artistry, cultural symbolism and the beauty woven into every thread.",tags:["Culture","Exhibition","Live"],live:"https://elinauiux-cloud.github.io/KIMONO/"},
+ {n:"Subliminator",img:"subliminator.webp",d:"A print-on-demand and dropshipping platform for designing and selling custom all-over-print apparel and home goods.",tags:["E-commerce","POD","Landing page"]}
+];
+const $=s=>document.querySelector(s);
+$("#cases").innerHTML=cases.map((c,i)=>`
+ <article class="case reveal">
+  <div class="case-media" data-open="images/${c.img}" data-title="${c.n}" role="button" tabindex="0" aria-label="Open ${c.n} case study">
+    <div class="scrollshot"><img src="images/${c.img}" alt="${c.n} case study" loading="lazy"/></div>
+  </div>
+  <div>
+   <span class="num">0${i+1} — ${c.type}</span>
+   <h3>${c.n}</h3>
+   <p class="desc">${c.d}</p>
+   <ul class="steps"><li><b>Research</b><span>${c.r}</span></li><li><b>Solution</b><span>${c.s}</span></li><li><b>Outcome</b><span>${c.o}</span></li></ul>
+   <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+   <button class="btn btn-acid btn-sm" data-open="images/${c.img}" data-title="${c.n}">Open case study ↗</button>
+  </div>
+ </article>`).join("");
+$("#landing").innerHTML=landing.map(l=>`
+ <article class="card reveal">
+  <div class="thumb" data-open="images/${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''} role="button" tabindex="0" aria-label="Open ${l.n}"><img ${l.wide?'style="object-position:left center"':''} src="images/${l.img}" alt="${l.n} landing page" loading="lazy"/></div>
+  <div class="card-body">
+   <h3>${l.n}</h3><p>${l.d}</p>
+   <div class="tags">${l.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+   <div class="card-actions">
+    ${l.live?`<a class="btn btn-acid btn-sm" href="${l.live}" target="_blank" rel="noopener">Visit live ↗</a>`:""}
+    <button class="btn btn-ghost btn-sm" data-open="images/${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''}>Preview</button>
+   </div>
+  </div>
+ </article>`).join("");
+
+// ticker
+const words=["Shopify Development","UX Research","Figma → Shopify","Design Systems","Landing Pages","Prototyping","Liquid Sections","Mobile-First"];
+$(".ticker-track").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).join("");
+
+// rotator
+const rot=["design","build","launch","research","ship"];let ri=0;
+setInterval(()=>{ri=(ri+1)%rot.length;$(".rotator").innerHTML=`<span>${rot[ri]}</span>`},2200);
+
+// menu
+const burger=$(".burger");
+burger.onclick=()=>{const o=document.body.classList.toggle("menu-open");burger.setAttribute("aria-expanded",o)};
+document.querySelectorAll(".mobile-menu a").forEach(a=>a.onclick=()=>document.body.classList.remove("menu-open"));
+
+// image fallback: if a .webp is missing try .png (and vice versa), once
+document.addEventListener("error",e=>{const i=e.target;if(i.tagName!=="IMG"||i.dataset.fb)return;i.dataset.fb=1;const s=i.getAttribute("src")||"";if(/\.webp$/i.test(s))i.src=s.replace(/\.webp$/i,".png");else if(/\.png$/i.test(s))i.src=s.replace(/\.png$/i,".webp")},true);
+
+// lightbox
+const lb=$(".lightbox"),lbImg=lb.querySelector("img"),lbScroll=lb.querySelector(".lb-scroll");
+function openLb(el){delete lbImg.dataset.fb;lbImg.src=el.dataset.open;lbImg.alt=el.dataset.title;lb.querySelector("h4").textContent=el.dataset.title;lbScroll.classList.toggle("wide",!!el.dataset.wide);lbScroll.scrollTop=0;lb.classList.add("open");document.body.style.overflow="hidden"}
+function closeLb(){lb.classList.remove("open");document.body.style.overflow=""}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-open]");if(t)openLb(t)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb();if(e.key==="Enter"&&e.target.matches("[data-open]"))openLb(e.target)});
+lb.querySelector(".lb-close").onclick=closeLb;
+lb.addEventListener("click",e=>{if(e.target===lb||e.target===lbScroll)closeLb()});
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+$("#yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
 
