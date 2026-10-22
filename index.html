@@ -100,12 +100,11 @@ section{padding:clamp(80px,12vw,150px) 0}
 #shopify .group{margin-bottom:0}
 
 /* case cards */
-.case{display:grid;gap:30px;align-items:center;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
+.case{display:grid;gap:30px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
 .case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);aspect-ratio:4/3.2;cursor:zoom-in}
-.case-media::after{content:"VIEW CASE ↗";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em}
-.case-media .scrollshot{position:absolute;inset:22px 16% 0;overflow:hidden;border:1px solid var(--line);border-bottom:none}
-.case-media .scrollshot img{width:100%;height:auto;transition:transform 9s ease-in-out}
+.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);aspect-ratio:auto;cursor:zoom-in}
+.case-media::after{content:"VIEW CASE ↗";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em;z-index:2}
+.case-media img{width:100%;height:auto;display:block}
 .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--acid);text-transform:uppercase}
 .case h3{font-size:clamp(2.2rem,6.5vw,3.8rem);margin:10px 0 14px}
 .case .desc{color:var(--dim);font-size:1.02rem}
@@ -202,9 +201,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   .nav ul{display:flex}.burger{display:none}.nav-cta{display:inline-flex}
   .mobile-menu{display:none}
 }
-@media (hover:hover) and (pointer:fine){
-  .case-media:hover .scrollshot img{transform:translateY(calc(-100% + 380px))}
-}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
@@ -289,10 +285,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
             <div class="tags">
               <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
             </div>
-            <button class="btn" data-open="images/neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
+            <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
           </div>
-          <div class="shop-frame" data-open="images/neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
-            <img src="images/neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
+          <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
+            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
           </div>
         </div>
       </div>
@@ -356,23 +352,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <script>
 const cases=[
- {n:"Pairbe",img:"pairbe.webp",type:"Mobile app · Social",d:"A social network app that uses geolocation and psychological tests to connect like-minded people nearby.",tags:["User research","Personas","User flows","Mobile UI"],r:"Interviews and personas showed that people want real connection, not endless swiping.",s:"Personality tests plus location-based matching, wrapped in a warm and simple UI.",o:"A clickable prototype and a design system ready for development."},
- {n:"Stufizz",img:"stufizz.webp",type:"Web & app · Marketplace",d:"A bartering platform that lets users connect and trade items within their local communities.",tags:["Journey mapping","IA","Wireframes","Prototype"],r:"Mapped how trust forms between strangers trading face to face.",s:"Clear listings, swap offers and community profiles that build trust.",o:"A complete trading flow, from listing an item to a confirmed swap."},
- {n:"Inflow Music",img:"inflow-music.webp",type:"Web3 · Music",d:"A social token platform that lets artists launch their own tokens and NFTs and build closer ties with fans.",tags:["Web3 UX","Empathy maps","Dashboard","UI"],r:"Artists found crypto tools intimidating and fans didn't know what they were buying.",s:"Plain-language token launches and fan-first artist pages.",o:"A simpler Web3 experience for both artists and fans."},
- {n:"Moody",img:"moody.webp",type:"AI · Music player",d:"An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.",tags:["AI UX","Concept","Interaction","UI"],r:"People search for music by mood far more often than by title.",s:"A conversational prompt plus mood-reactive visuals.",o:"A new kind of player, plus a dedicated landing page."},
- {n:"CryptoGate",img:"cryptogate.webp",type:"Fintech · Crypto",d:"A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.",tags:["Fintech UX","Security flows","Design system","Responsive"],r:"Beginners feared mistakes; experts wanted speed.",s:"Step-by-step transactions with clear confirmations and trust signals.",o:"Confident, error-proof deposit and withdrawal flows."}
+ {n:"Pairbe",img:"Pairbe.png",type:"Mobile app · Social",d:"A social network app that uses geolocation and psychological tests to connect like-minded people nearby.",tags:["User research","Personas","User flows","Mobile UI"],r:"Interviews and personas showed that people want real connection, not endless swiping.",s:"Personality tests plus location-based matching, wrapped in a warm and simple UI.",o:"A clickable prototype and a design system ready for development."},
+ {n:"Stufizz",img:"Stufizz.png",type:"Web & app · Marketplace",d:"A bartering platform that lets users connect and trade items within their local communities.",tags:["Journey mapping","IA","Wireframes","Prototype"],r:"Mapped how trust forms between strangers trading face to face.",s:"Clear listings, swap offers and community profiles that build trust.",o:"A complete trading flow, from listing an item to a confirmed swap."},
+ {n:"Inflow Music",img:"Inflow.png",type:"Web3 · Music",d:"A social token platform that lets artists launch their own tokens and NFTs and build closer ties with fans.",tags:["Web3 UX","Empathy maps","Dashboard","UI"],r:"Artists found crypto tools intimidating and fans didn't know what they were buying.",s:"Plain-language token launches and fan-first artist pages.",o:"A simpler Web3 experience for both artists and fans."},
+ {n:"Moody",img:"Moody.png",full:"Moody.png",type:"AI · Music player",d:"An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.",tags:["AI UX","Concept","Interaction","UI"],r:"People search for music by mood far more often than by title.",s:"A conversational prompt plus mood-reactive visuals.",o:"A new kind of player, plus a dedicated landing page."},
+ {n:"CryptoGate",img:"Cryptogate.png",type:"Fintech · Crypto",d:"A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.",tags:["Fintech UX","Security flows","Design system","Responsive"],r:"Beginners feared mistakes; experts wanted speed.",s:"Step-by-step transactions with clear confirmations and trust signals.",o:"Confident, error-proof deposit and withdrawal flows."}
 ];
 const landing=[
- {n:"Space Goblin",img:"space-goblin.webp",d:"An NFT digital art project introducing a unique collection of character cards.",tags:["NFT","Landing page","Illustration"]},
- {n:"Moody",img:"moody.webp",full:"moody-landing.webp",d:"The landing page for Moody, the AI-native music player.",tags:["AI","Landing page","Live"],live:"https://elinauiux-cloud.github.io/Moody_Landing-Page/"},
+ {n:"Space Goblin",img:"Goblin.png",full:"Goblin.png",d:"An NFT digital art project introducing a unique collection of character cards.",tags:["NFT","Landing page","Illustration"]},
+ {n:"Moody",img:"Moody.png",full:"Moody.png",d:"The landing page for Moody, the AI-native music player.",tags:["AI","Landing page","Live"],live:"https://elinauiux-cloud.github.io/Moody_Landing-Page/"},
  {n:"KIMONO",img:"kimono.png",full:"kimono-live.webp",d:"An exhibition of Japanese textile artistry, cultural symbolism and the beauty woven into every thread.",tags:["Culture","Exhibition","Live"],live:"https://elinauiux-cloud.github.io/KIMONO/"},
- {n:"Subliminator",img:"subliminator.webp",d:"A print-on-demand and dropshipping platform for designing and selling custom all-over-print apparel and home goods.",tags:["E-commerce","POD","Landing page"]}
+ {n:"Subliminator",img:"Subliminator.png",d:"A print-on-demand and dropshipping platform for designing and selling custom all-over-print apparel and home goods.",tags:["E-commerce","POD","Landing page"]}
 ];
 const $=s=>document.querySelector(s);
 $("#cases").innerHTML=cases.map((c,i)=>`
  <article class="case reveal">
-  <div class="case-media" data-open="images/${c.img}" data-title="${c.n}" role="button" tabindex="0" aria-label="Open ${c.n} case study">
-    <div class="scrollshot"><img src="images/${c.img}" alt="${c.n} case study" loading="lazy"/></div>
+  <div class="case-media" data-open="${c.img}" data-title="${c.n}" role="button" tabindex="0" aria-label="Open ${c.n} case study">
+    <img src="${c.img}" alt="${c.n} case study" loading="lazy"/>
   </div>
   <div>
    <span class="num">0${i+1} — ${c.type}</span>
@@ -380,18 +376,18 @@ $("#cases").innerHTML=cases.map((c,i)=>`
    <p class="desc">${c.d}</p>
    <ul class="steps"><li><b>Research</b><span>${c.r}</span></li><li><b>Solution</b><span>${c.s}</span></li><li><b>Outcome</b><span>${c.o}</span></li></ul>
    <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
-   <button class="btn btn-acid btn-sm" data-open="images/${c.img}" data-title="${c.n}">Open case study ↗</button>
+   <button class="btn btn-acid btn-sm" data-open="${c.img}" data-title="${c.n}">Open case study ↗</button>
   </div>
  </article>`).join("");
 $("#landing").innerHTML=landing.map(l=>`
  <article class="card reveal">
-  <div class="thumb" data-open="images/${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''} role="button" tabindex="0" aria-label="Open ${l.n}"><img ${l.wide?'style="object-position:left center"':''} src="images/${l.img}" alt="${l.n} landing page" loading="lazy"/></div>
+  <div class="thumb" data-open="${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''} role="button" tabindex="0" aria-label="Open ${l.n}"><img ${l.wide?'style="object-position:left center"':''} src="${l.img}" alt="${l.n} landing page" loading="lazy"/></div>
   <div class="card-body">
    <h3>${l.n}</h3><p>${l.d}</p>
    <div class="tags">${l.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
    <div class="card-actions">
     ${l.live?`<a class="btn btn-acid btn-sm" href="${l.live}" target="_blank" rel="noopener">Visit live ↗</a>`:""}
-    <button class="btn btn-ghost btn-sm" data-open="images/${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''}>Preview</button>
+    <button class="btn btn-ghost btn-sm" data-open="${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''}>Preview</button>
    </div>
   </div>
  </article>`).join("");
