@@ -92,7 +92,7 @@ section{padding:clamp(80px,12vw,150px) 0}
 .group-title::after{content:"";flex:1;height:1px;background:var(--line)}
 .group-title i{font-style:normal;color:var(--acid)}
 
-/* Light editorial work section; the store and remaining page stay dark. */
+/* Light editorial work section */
 #work{background:var(--work-bg);color:var(--work-ink);--bg:var(--work-bg);--ink:var(--work-ink);--dim:var(--work-dim);--line:var(--work-line);--media:var(--work-line);--card-bg:var(--work-bg);--thumb-bg:var(--work-line)}
 #work .eyebrow,#work .group-title i,#work .num,#work .steps b{color:var(--ink)}
 #work em{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:.12em;text-underline-offset:.08em}
@@ -102,7 +102,7 @@ section{padding:clamp(80px,12vw,150px) 0}
 /* case cards */
 .case{display:grid;gap:30px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
 .case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);aspect-ratio:auto;cursor:zoom-in}
+.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);cursor:zoom-in;min-height:200px}
 .case-media::after{content:"VIEW CASE ↗";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em;z-index:2}
 .case-media img{width:100%;height:auto;display:block}
 .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--acid);text-transform:uppercase}
@@ -189,6 +189,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
+/* Hidden sections by default */
+.hidden-content{display:none}
+.hidden-content.visible{display:block}
+
 @media (min-width:760px){
   .grid{grid-template-columns:repeat(2,1fr)}
   .skills{grid-template-columns:repeat(3,1fr)}
@@ -237,7 +241,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
       <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
       <div class="hero-ctas">
-        <a href="#work" class="btn btn-acid">View my work ↓</a>
+        <button id="showWorkBtn" class="btn btn-acid">View my work ↓</button>
         <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
       </div>
       <div class="hero-meta">
@@ -247,106 +251,106 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </section>
 
-  <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
+  <div class="hidden-content" id="fullContent">
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Selected work</span>
-        <h2>Things I've<br/><em>built</em> from scratch.</h2>
-        <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
+    <section id="work">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2>Things I've<br/><em>built</em> from scratch.</h2>
+          <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
+        </div>
+
+        <!-- CASE STUDIES -->
+        <div class="group">
+          <h3 class="group-title"><i>01 /</i> Case Studies</h3>
+          <div id="cases"></div>
+        </div>
+
+        <!-- LANDING -->
+        <div class="group">
+          <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
+          <div class="grid" id="landing"></div>
+        </div>
       </div>
+    </section>
 
-      <!-- CASE STUDIES -->
-      <div class="group">
-        <h3 class="group-title"><i>01 /</i> Case Studies</h3>
-        <div id="cases"></div>
-      </div>
-
-      <!-- LANDING -->
-      <div class="group">
-        <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
-        <div class="grid" id="landing"></div>
-      </div>
-
-      <!-- SHOPIFY -->
-    </div>
-  </section>
-
-  <section id="shopify">
-    <div class="wrap">
-      <div class="group">
-        <h3 class="group-title"><i>03 /</i> Shopify Store</h3>
-        <div class="shop reveal">
-          <div>
-            <span class="eyebrow">Shopify · Women's activewear</span>
-            <h3 style="margin:16px 0 18px">Neverlate</h3>
-            <p>Neverlate creates women's activewear for fitness, yoga, Pilates, running, dance and everyday movement — combining thoughtful design, functionality and contemporary style.</p>
-            <div class="tags">
-              <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
+    <section id="shopify">
+      <div class="wrap">
+        <div class="group">
+          <h3 class="group-title"><i>03 /</i> Shopify Store</h3>
+          <div class="shop reveal">
+            <div>
+              <span class="eyebrow">Shopify · Women's activewear</span>
+              <h3 style="margin:16px 0 18px">Neverlate</h3>
+              <p>Neverlate creates women's activewear for fitness, yoga, Pilates, running, dance and everyday movement — combining thoughtful design, functionality and contemporary style.</p>
+              <div class="tags">
+                <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
+              </div>
+              <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
             </div>
-            <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
-          </div>
-          <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
-            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
+            <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
+              <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">What I offer</span>
-        <h2>Services</h2>
+    <section id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">What I offer</span>
+          <h2>Services</h2>
+        </div>
+        <div class="services">
+          <article class="service reveal"><span class="snum">01</span><h3>Shopify store setup</h3><p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p><ul><li>Store setup & theme customization</li><li>Custom Liquid sections</li><li>Figma → Shopify builds</li><li>App integration</li><li>Product page optimization</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+          <article class="service reveal"><span class="snum">02</span><h3>UX research & strategy</h3><p>Clear answers about your users before a single screen is designed.</p><ul><li>User research & personas</li><li>Empathy mapping</li><li>Customer journey maps</li><li>User flows</li><li>Information architecture</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+          <article class="service reveal"><span class="snum">03</span><h3>UI design & landing pages</h3><p>Sharp, responsive interfaces and landing pages built to convert.</p><ul><li>Wireframes & prototypes</li><li>UI design & design systems</li><li>Responsive web design</li><li>Conversion-focused landing pages</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+        </div>
       </div>
-      <div class="services">
-        <article class="service reveal"><span class="snum">01</span><h3>Shopify store setup</h3><p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p><ul><li>Store setup & theme customization</li><li>Custom Liquid sections</li><li>Figma → Shopify builds</li><li>App integration</li><li>Product page optimization</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-        <article class="service reveal"><span class="snum">02</span><h3>UX research & strategy</h3><p>Clear answers about your users before a single screen is designed.</p><ul><li>User research & personas</li><li>Empathy mapping</li><li>Customer journey maps</li><li>User flows</li><li>Information architecture</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-        <article class="service reveal"><span class="snum">03</span><h3>UI design & landing pages</h3><p>Sharp, responsive interfaces and landing pages built to convert.</p><ul><li>Wireframes & prototypes</li><li>UI design & design systems</li><li>Responsive web design</li><li>Conversion-focused landing pages</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">What I bring</span>
-        <h2>Skills & <em>tools</em></h2>
+    <section id="skills">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="eyebrow">What I bring</span>
+          <h2>Skills & <em>tools</em></h2>
+        </div>
+        <div class="skills">
+          <div class="skill-box reveal"><h3><i>[01]</i>Shopify & E-commerce</h3><div class="pills">
+            <span class="pill">Store Setup & Development</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma → Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product & Landing Page Optimization</span><span class="pill">App Integration</span><span class="pill">Product Listings & Store Management</span><span class="pill">Mobile-First Design</span>
+          </div></div>
+          <div class="skill-box reveal"><h3><i>[02]</i>UI/UX & Product</h3><div class="pills">
+            <span class="pill">User Research & Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Customer Journey Mapping</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing & Prototyping</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Web Design</span>
+          </div></div>
+          <div class="skill-box reveal"><h3><i>[03]</i>Tools</h3><div class="pills">
+            <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
+          </div></div>
+        </div>
       </div>
-      <div class="skills">
-        <div class="skill-box reveal"><h3><i>[01]</i>Shopify & E-commerce</h3><div class="pills">
-          <span class="pill">Store Setup & Development</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma → Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product & Landing Page Optimization</span><span class="pill">App Integration</span><span class="pill">Product Listings & Store Management</span><span class="pill">Mobile-First Design</span>
-        </div></div>
-        <div class="skill-box reveal"><h3><i>[02]</i>UI/UX & Product</h3><div class="pills">
-          <span class="pill">User Research & Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Customer Journey Mapping</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing & Prototyping</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Web Design</span>
-        </div></div>
-        <div class="skill-box reveal"><h3><i>[03]</i>Tools</h3><div class="pills">
-          <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
-        </div></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <span class="eyebrow reveal">Open to full-time & freelance</span>
-      <h2 class="reveal">Let's work <em>together.</em></h2>
-      <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
-      <div class="row reveal">
-        <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram ↗</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <span class="eyebrow reveal">Open to full-time & freelance</span>
+        <h2 class="reveal">Let's work <em>together.</em></h2>
+        <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
+        <div class="row reveal">
+          <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram ↗</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <footer><div class="wrap"><span>© <span id="yr"></span> Elina Vardanyan</span><span>Telegram — @elinavardanyan</span></div></footer>
 
 <div class="lightbox" role="dialog" aria-modal="true" aria-label="Project preview">
-  <div class="lb-bar"><h4></h4><button class="lb-close" aria-label="Close">✕</button></div>
+  <div class="lb-bar"><h4></h4><button class="lb-close" aria-label="Close"></button></div>
   <div class="lb-scroll"><img alt="" /></div>
 </div>
 
@@ -376,7 +380,7 @@ $("#cases").innerHTML=cases.map((c,i)=>`
    <p class="desc">${c.d}</p>
    <ul class="steps"><li><b>Research</b><span>${c.r}</span></li><li><b>Solution</b><span>${c.s}</span></li><li><b>Outcome</b><span>${c.o}</span></li></ul>
    <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
-   <button class="btn btn-acid btn-sm" data-open="${c.img}" data-title="${c.n}">Open case study ↗</button>
+   <button class="btn btn-acid btn-sm" data-open="${c.img}" data-title="${c.n}">Open case study </button>
   </div>
  </article>`).join("");
 $("#landing").innerHTML=landing.map(l=>`
@@ -400,12 +404,23 @@ $(".ticker-track").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).joi
 const rot=["design","build","launch","research","ship"];let ri=0;
 setInterval(()=>{ri=(ri+1)%rot.length;$(".rotator").innerHTML=`<span>${rot[ri]}</span>`},2200);
 
+// Show full content on CTA click
+$("#showWorkBtn").addEventListener("click",()=>{
+  const content=$("#fullContent");
+  content.classList.add("visible");
+  setTimeout(()=>{
+    content.scrollIntoView({behavior:"smooth"});
+    // Trigger reveal animations
+    document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));
+  },100);
+});
+
 // menu
 const burger=$(".burger");
 burger.onclick=()=>{const o=document.body.classList.toggle("menu-open");burger.setAttribute("aria-expanded",o)};
 document.querySelectorAll(".mobile-menu a").forEach(a=>a.onclick=()=>document.body.classList.remove("menu-open"));
 
-// image fallback: if a .webp is missing try .png (and vice versa), once
+// image fallback
 document.addEventListener("error",e=>{const i=e.target;if(i.tagName!=="IMG"||i.dataset.fb)return;i.dataset.fb=1;const s=i.getAttribute("src")||"";if(/\.webp$/i.test(s))i.src=s.replace(/\.webp$/i,".png");else if(/\.png$/i.test(s))i.src=s.replace(/\.png$/i,".webp")},true);
 
 // lightbox
@@ -417,7 +432,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb();if(e.key==
 lb.querySelector(".lb-close").onclick=closeLb;
 lb.addEventListener("click",e=>{if(e.target===lb||e.target===lbScroll)closeLb()});
 
-// reveal
+// reveal observer
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
