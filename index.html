@@ -102,14 +102,11 @@ section{padding:clamp(80px,12vw,150px) 0}
 /* case cards */
 .case{display:grid;gap:30px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
 .case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-
-/* UPDATED: Case Media now has fixed aspect ratio for Hero view */
 .case-media{
   position:relative;
   overflow:hidden;
   background:var(--media);
   border:1px solid var(--line);
-  /* Force a landscape/hero shape (16:10) instead of full height */
   aspect-ratio: 16/10; 
   cursor:zoom-in;
 }
@@ -125,14 +122,13 @@ section{padding:clamp(80px,12vw,150px) 0}
   font-weight:700;
   letter-spacing:.12em;
   z-index:2;
-  pointer-events: none; /* Let clicks pass through to container */
+  pointer-events: none;
 }
-/* UPDATED: Image covers the hero box perfectly */
 .case-media img{
   width:100%;
   height:100%;
-  object-fit: cover; /* Crops the image to fit the box */
-  object-position: top center; /* Shows the top (hero) part */
+  object-fit: cover;
+  object-position: top center;
   display:block;
   transition: transform 0.6s ease;
 }
@@ -287,7 +283,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
       <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
       <div class="hero-ctas">
-        <!-- Changed to button to trigger JS -->
         <button id="showWorkBtn" class="btn btn-acid">View my work ↓</button>
         <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
       </div>
@@ -298,7 +293,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </section>
 
-  <!-- Wrapped all content below hero in this div -->
   <div class="hidden-section" id="fullContent">
     <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
 
@@ -310,13 +304,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
         </div>
 
-        <!-- CASE STUDIES -->
         <div class="group">
           <h3 class="group-title"><i>01 /</i> Case Studies</h3>
           <div id="cases"></div>
         </div>
 
-        <!-- LANDING -->
         <div class="group">
           <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
           <div class="grid" id="landing"></div>
@@ -410,15 +402,17 @@ const cases=[
  {n:"Moody",img:"Moody.png",full:"Moody.png",type:"AI · Music player",d:"An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.",tags:["AI UX","Concept","Interaction","UI"],r:"People search for music by mood far more often than by title.",s:"A conversational prompt plus mood-reactive visuals.",o:"A new kind of player, plus a dedicated landing page."},
  {n:"CryptoGate",img:"Cryptogate.png",type:"Fintech · Crypto",d:"A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.",tags:["Fintech UX","Security flows","Design system","Responsive"],r:"Beginners feared mistakes; experts wanted speed.",s:"Step-by-step transactions with clear confirmations and trust signals.",o:"Confident, error-proof deposit and withdrawal flows."}
 ];
+
+// UPDATED: KIMONO now uses a placeholder SVG since the PNG doesn't exist in repo
 const landing=[
  {n:"Space Goblin",img:"Goblin.png",full:"Goblin.png",d:"An NFT digital art project introducing a unique collection of character cards.",tags:["NFT","Landing page","Illustration"]},
  {n:"Moody",img:"Moody.png",full:"Moody.png",d:"The landing page for Moody, the AI-native music player.",tags:["AI","Landing page","Live"],live:"https://elinauiux-cloud.github.io/Moody_Landing-Page/"},
- {n:"KIMONO",img:"kimono.png",full:"kimono-live.webp",d:"An exhibition of Japanese textile artistry, cultural symbolism and the beauty woven into every thread.",tags:["Culture","Exhibition","Live"],live:"https://elinauiux-cloud.github.io/KIMONO/"},
+ {n:"KIMONO",img:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='100%25' height='100%25' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='24' fill='%23666'%3EKIMONO PREVIEW%3C/text%3E%3C/svg%3E",full:null,d:"An exhibition of Japanese textile artistry, cultural symbolism and the beauty woven into every thread.",tags:["Culture","Exhibition","Live"],live:"https://elinauiux-cloud.github.io/KIMONO/"},
  {n:"Subliminator",img:"Subliminator.png",d:"A print-on-demand and dropshipping platform for designing and selling custom all-over-print apparel and home goods.",tags:["E-commerce","POD","Landing page"]}
 ];
+
 const $=s=>document.querySelector(s);
 
-// Generate HTML immediately so it exists in DOM
 $("#cases").innerHTML=cases.map((c,i)=>`
  <article class="case reveal">
   <div class="case-media" data-open="${c.img}" data-title="${c.n}" role="button" tabindex="0" aria-label="Open ${c.n} case study">
@@ -436,13 +430,13 @@ $("#cases").innerHTML=cases.map((c,i)=>`
 
 $("#landing").innerHTML=landing.map(l=>`
  <article class="card reveal">
-  <div class="thumb" data-open="${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''} role="button" tabindex="0" aria-label="Open ${l.n}"><img ${l.wide?'style="object-position:left center"':''} src="${l.img}" alt="${l.n} landing page" loading="lazy"/></div>
+  <div class="thumb" ${l.full ? `data-open="${l.full}"` : ''} data-title="${l.n}" ${l.wide?'data-wide="1"':''} role="button" tabindex="0" aria-label="Open ${l.n}"><img ${l.wide?'style="object-position:left center"':''} src="${l.img}" alt="${l.n} landing page" loading="lazy"/></div>
   <div class="card-body">
    <h3>${l.n}</h3><p>${l.d}</p>
    <div class="tags">${l.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
    <div class="card-actions">
     ${l.live?`<a class="btn btn-acid btn-sm" href="${l.live}" target="_blank" rel="noopener">Visit live ↗</a>`:""}
-    <button class="btn btn-ghost btn-sm" data-open="${l.full||l.img}" data-title="${l.n}" ${l.wide?'data-wide="1"':''}>Preview</button>
+    ${l.full ? `<button class="btn btn-ghost btn-sm" data-open="${l.full}" data-title="${l.n}" ${l.wide?'data-wide="1"':''}>Preview</button>` : ""}
    </div>
   </div>
  </article>`).join("");
@@ -455,18 +449,12 @@ $(".ticker-track").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).joi
 const rot=["design","build","launch","research","ship"];let ri=0;
 setInterval(()=>{ri=(ri+1)%rot.length;$(".rotator").innerHTML=`<span>${rot[ri]}</span>`},2200);
 
-// --- LOGIC TO SHOW CONTENT ON CLICK ---
+// Show content on click
 $("#showWorkBtn").addEventListener("click",()=>{
   const content=$("#fullContent");
-  
-  // 1. Make the container visible
   content.classList.add("visible");
-  
-  // 2. Scroll to it smoothly
   setTimeout(()=>{
     content.scrollIntoView({behavior:"smooth"});
-    
-    // 3. Force reveal animations for all elements inside
     document.querySelectorAll(".reveal").forEach(el=>{
         el.classList.add("in");
     });
@@ -483,14 +471,24 @@ document.addEventListener("error",e=>{const i=e.target;if(i.tagName!=="IMG"||i.d
 
 // lightbox
 const lb=$(".lightbox"),lbImg=lb.querySelector("img"),lbScroll=lb.querySelector(".lb-scroll");
-function openLb(el){delete lbImg.dataset.fb;lbImg.src=el.dataset.open;lbImg.alt=el.dataset.title;lb.querySelector("h4").textContent=el.dataset.title;lbScroll.classList.toggle("wide",!!el.dataset.wide);lbScroll.scrollTop=0;lb.classList.add("open");document.body.style.overflow="hidden"}
+function openLb(el){
+    if(!el.dataset.open) return; // Don't open if no image source
+    delete lbImg.dataset.fb;
+    lbImg.src=el.dataset.open;
+    lbImg.alt=el.dataset.title;
+    lb.querySelector("h4").textContent=el.dataset.title;
+    lbScroll.classList.toggle("wide",!!el.dataset.wide);
+    lbScroll.scrollTop=0;
+    lb.classList.add("open");
+    document.body.style.overflow="hidden"
+}
 function closeLb(){lb.classList.remove("open");document.body.style.overflow=""}
 document.addEventListener("click",e=>{const t=e.target.closest("[data-open]");if(t)openLb(t)});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb();if(e.key==="Enter"&&e.target.matches("[data-open]"))openLb(e.target)});
 lb.querySelector(".lb-close").onclick=closeLb;
 lb.addEventListener("click",e=>{if(e.target===lb||e.target===lbScroll)closeLb()});
 
-// reveal observer (for natural scrolling later)
+// reveal observer
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
