@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Elina Vardanyan — UI/UX & Shopify Designer-Developer</title>
 <meta name="description" content="Portfolio of Elina Vardanyan: UI/UX product design case studies, landing pages and Shopify store development." />
 <meta property="og:title" content="Elina Vardanyan — UI/UX & Shopify Designer-Developer" />
@@ -21,7 +21,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%}
 img{max-width:100%;display:block}
 a{color:inherit}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
@@ -212,28 +212,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .lb-bar h4{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
 .lb-close{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:.25s}
 .lb-close:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
-.lb-scroll{flex:1;overflow-y:auto;padding:24px 12px 60px;-webkit-overflow-scrolling:touch}
+.lb-scroll{
+  flex:1;
+  overflow-y: auto;
+  padding:24px 12px 60px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
 .lb-scroll img{margin:0 auto;width:auto;max-width:min(1200px,100%);height:auto;border:1px solid var(--line)}
 .lb-scroll.wide img{max-width:min(1400px,100%)}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
-
-/* Hidden sections logic */
-.hidden-section {
-    opacity: 0;
-    pointer-events: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease, max-height 0.5s ease;
-}
-.hidden-section.visible {
-    opacity: 1;
-    pointer-events: auto;
-    max-height: none;
-    overflow: visible;
-}
 
 @media (min-width:760px){
   .grid{grid-template-columns:repeat(2,1fr)}
@@ -283,7 +274,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
       <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
       <div class="hero-ctas">
-        <button id="showWorkBtn" class="btn btn-acid">View my work ↓</button>
+        <!-- NATIVE ANCHOR LINK: 100% bug-free scrolling in all browsers -->
+        <a href="#work" class="btn btn-acid">View my work ↓</a>
         <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
       </div>
       <div class="hero-meta">
@@ -293,108 +285,113 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     </div>
   </section>
 
-  <div class="hidden-section" id="fullContent">
-    <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
-
-    <section id="work">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="eyebrow">Selected work</span>
-          <h2>Things I've<br/><em>built</em> from scratch.</h2>
-          <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
-        </div>
-
-        <div class="group">
-          <h3 class="group-title"><i>01 /</i> Case Studies</h3>
-          <div id="cases"></div>
-        </div>
-
-        <div class="group">
-          <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
-          <div class="grid" id="landing"></div>
-        </div>
+  <!-- Content is always in the DOM, no display:none hacks that break Chrome/Safari scrolling -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Selected work</span>
+        <h2>Things I've<br/><em>built</em> from scratch.</h2>
+        <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
       </div>
-    </section>
 
-    <section id="shopify">
-      <div class="wrap">
-        <div class="group">
-          <h3 class="group-title"><i>03 /</i> Shopify Store</h3>
-          <div class="shop reveal">
-            <div>
-              <span class="eyebrow">Shopify · Women's activewear</span>
-              <h3 style="margin:16px 0 18px">Neverlate</h3>
-              <p>Neverlate creates women's activewear for fitness, yoga, Pilates, running, dance and everyday movement — combining thoughtful design, functionality and contemporary style.</p>
-              <div class="tags">
-                <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
-              </div>
-              <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
+      <div class="group">
+        <h3 class="group-title"><i>01 /</i> Case Studies</h3>
+        <div id="cases"></div>
+      </div>
+
+      <div class="group">
+        <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
+        <div class="grid" id="landing"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shopify">
+    <div class="wrap">
+      <div class="group">
+        <h3 class="group-title"><i>03 /</i> Shopify Store</h3>
+        <div class="shop reveal">
+          <div>
+            <span class="eyebrow">Shopify · Women's activewear</span>
+            <h3 style="margin:16px 0 18px">Neverlate</h3>
+            <p>Neverlate creates women's activewear for fitness, yoga, Pilates, running, dance and everyday movement — combining thoughtful design, functionality and contemporary style.</p>
+            <div class="tags">
+              <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
             </div>
-            <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
-              <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
-            </div>
+            <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
+          </div>
+          <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
+            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="services">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="eyebrow">What I offer</span>
-          <h2>Services</h2>
-        </div>
-        <div class="services">
-          <article class="service reveal"><span class="snum">01</span><h3>Shopify store setup</h3><p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p><ul><li>Store setup & theme customization</li><li>Custom Liquid sections</li><li>Figma → Shopify builds</li><li>App integration</li><li>Product page optimization</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-          <article class="service reveal"><span class="snum">02</span><h3>UX research & strategy</h3><p>Clear answers about your users before a single screen is designed.</p><ul><li>User research & personas</li><li>Empathy mapping</li><li>Customer journey maps</li><li>User flows</li><li>Information architecture</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-          <article class="service reveal"><span class="snum">03</span><h3>UI design & landing pages</h3><p>Sharp, responsive interfaces and landing pages built to convert.</p><ul><li>Wireframes & prototypes</li><li>UI design & design systems</li><li>Responsive web design</li><li>Conversion-focused landing pages</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-        </div>
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What I offer</span>
+        <h2>Services</h2>
       </div>
-    </section>
+      <div class="services">
+        <article class="service reveal"><span class="snum">01</span><h3>Shopify store setup</h3><p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p><ul><li>Store setup & theme customization</li><li>Custom Liquid sections</li><li>Figma → Shopify builds</li><li>App integration</li><li>Product page optimization</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+        <article class="service reveal"><span class="snum">02</span><h3>UX research & strategy</h3><p>Clear answers about your users before a single screen is designed.</p><ul><li>User research & personas</li><li>Empathy mapping</li><li>Customer journey maps</li><li>User flows</li><li>Information architecture</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+        <article class="service reveal"><span class="snum">03</span><h3>UI design & landing pages</h3><p>Sharp, responsive interfaces and landing pages built to convert.</p><ul><li>Wireframes & prototypes</li><li>UI design & design systems</li><li>Responsive web design</li><li>Conversion-focused landing pages</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+      </div>
+    </div>
+  </section>
 
-    <section id="skills">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="eyebrow">What I bring</span>
-          <h2>Skills & <em>tools</em></h2>
-        </div>
-        <div class="skills">
-          <div class="skill-box reveal"><h3><i>[01]</i>Shopify & E-commerce</h3><div class="pills">
-            <span class="pill">Store Setup & Development</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma → Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product & Landing Page Optimization</span><span class="pill">App Integration</span><span class="pill">Product Listings & Store Management</span><span class="pill">Mobile-First Design</span>
-          </div></div>
-          <div class="skill-box reveal"><h3><i>[02]</i>UI/UX & Product</h3><div class="pills">
-            <span class="pill">User Research & Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Customer Journey Mapping</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing & Prototyping</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Web Design</span>
-          </div></div>
-          <div class="skill-box reveal"><h3><i>[03]</i>Tools</h3><div class="pills">
-            <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
-          </div></div>
-        </div>
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">What I bring</span>
+        <h2>Skills & <em>tools</em></h2>
       </div>
-    </section>
+      <div class="skills">
+        <div class="skill-box reveal"><h3><i>[01]</i>Shopify & E-commerce</h3><div class="pills">
+          <span class="pill">Store Setup & Development</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma → Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product & Landing Page Optimization</span><span class="pill">App Integration</span><span class="pill">Product Listings & Store Management</span><span class="pill">Mobile-First Design</span>
+        </div></div>
+        <div class="skill-box reveal"><h3><i>[02]</i>UI/UX & Product</h3><div class="pills">
+          <span class="pill">User Research & Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Customer Journey Mapping</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing & Prototyping</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Web Design</span>
+        </div></div>
+        <div class="skill-box reveal"><h3><i>[03]</i>Tools</h3><div class="pills">
+          <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
+        </div></div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="contact">
-      <div class="wrap">
-        <span class="eyebrow reveal">Open to full-time & freelance</span>
-        <h2 class="reveal">Let's work <em>together.</em></h2>
-        <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
-        <div class="row reveal">
-          <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
-          <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram ↗</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        </div>
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="eyebrow reveal">Open to full-time & freelance</span>
+      <h2 class="reveal">Let's work <em>together.</em></h2>
+      <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
+      <div class="row reveal">
+        <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
 
 <footer><div class="wrap"><span>© <span id="yr"></span> Elina Vardanyan</span><span>Telegram — @elinavardanyan</span></div></footer>
 
 <div class="lightbox" role="dialog" aria-modal="true" aria-label="Project preview">
-  <div class="lb-bar"><h4></h4><button class="lb-close" aria-label="Close"></button></div>
+  <div class="lb-bar"><h4></h4><button class="lb-close" aria-label="Close">✕</button></div>
   <div class="lb-scroll"><img alt="" /></div>
 </div>
 
 <script>
+// --- SAFEGUARD: Prevent permanent scroll lock on page load ---
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  document.body.style.overflow = '';
+});
+
 const cases=[
  {n:"Pairbe",img:"Pairbe.png",type:"Mobile app · Social",d:"A social network app that uses geolocation and psychological tests to connect like-minded people nearby.",tags:["User research","Personas","User flows","Mobile UI"],r:"Interviews and personas showed that people want real connection, not endless swiping.",s:"Personality tests plus location-based matching, wrapped in a warm and simple UI.",o:"A clickable prototype and a design system ready for development."},
  {n:"Stufizz",img:"Stufizz.png",type:"Web & app · Marketplace",d:"A bartering platform that lets users connect and trade items within their local communities.",tags:["Journey mapping","IA","Wireframes","Prototype"],r:"Mapped how trust forms between strangers trading face to face.",s:"Clear listings, swap offers and community profiles that build trust.",o:"A complete trading flow, from listing an item to a confirmed swap."},
@@ -403,7 +400,6 @@ const cases=[
  {n:"CryptoGate",img:"Cryptogate.png",type:"Fintech · Crypto",d:"A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.",tags:["Fintech UX","Security flows","Design system","Responsive"],r:"Beginners feared mistakes; experts wanted speed.",s:"Step-by-step transactions with clear confirmations and trust signals.",o:"Confident, error-proof deposit and withdrawal flows."}
 ];
 
-// UPDATED: KIMONO now uses a placeholder SVG since the PNG doesn't exist in repo
 const landing=[
  {n:"Space Goblin",img:"Goblin.png",full:"Goblin.png",d:"An NFT digital art project introducing a unique collection of character cards.",tags:["NFT","Landing page","Illustration"]},
  {n:"Moody",img:"Moody.png",full:"Moody.png",d:"The landing page for Moody, the AI-native music player.",tags:["AI","Landing page","Live"],live:"https://elinauiux-cloud.github.io/Moody_Landing-Page/"},
@@ -449,47 +445,95 @@ $(".ticker-track").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).joi
 const rot=["design","build","launch","research","ship"];let ri=0;
 setInterval(()=>{ri=(ri+1)%rot.length;$(".rotator").innerHTML=`<span>${rot[ri]}</span>`},2200);
 
-// Show content on click
-$("#showWorkBtn").addEventListener("click",()=>{
-  const content=$("#fullContent");
-  content.classList.add("visible");
-  setTimeout(()=>{
-    content.scrollIntoView({behavior:"smooth"});
-    document.querySelectorAll(".reveal").forEach(el=>{
-        el.classList.add("in");
-    });
-  }, 100);
+// --- SAFARI/CHROME PROOF SCROLL LOCK ---
+let lockedScrollY = 0;
+
+function lockScroll() {
+  lockedScrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.style.width = '100%';
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockScroll() {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  document.body.style.overflow = '';
+  window.scrollTo(0, lockedScrollY);
+}
+
+// menu toggle
+const burger=$(".burger");
+burger.onclick=()=>{
+  const isOpen = document.body.classList.toggle("menu-open");
+  burger.setAttribute("aria-expanded", isOpen);
+  if (isOpen) lockScroll();
+  else unlockScroll();
+};
+
+document.querySelectorAll(".mobile-menu a").forEach(a=>{
+  a.onclick=()=>{
+    document.body.classList.remove("menu-open");
+    unlockScroll();
+  }
 });
 
-// menu
-const burger=$(".burger");
-burger.onclick=()=>{const o=document.body.classList.toggle("menu-open");burger.setAttribute("aria-expanded",o)};
-document.querySelectorAll(".mobile-menu a").forEach(a=>a.onclick=()=>document.body.classList.remove("menu-open"));
-
 // image fallback
-document.addEventListener("error",e=>{const i=e.target;if(i.tagName!=="IMG"||i.dataset.fb)return;i.dataset.fb=1;const s=i.getAttribute("src")||"";if(/\.webp$/i.test(s))i.src=s.replace(/\.webp$/i,".png");else if(/\.png$/i.test(s))i.src=s.replace(/\.png$/i,".webp")},true);
+document.addEventListener("error",e=>{
+  const i=e.target;
+  if(i.tagName!=="IMG"||i.dataset.fb)return;
+  i.dataset.fb=1;
+  const s=i.getAttribute("src")||"";
+  if(/\.webp$/i.test(s))i.src=s.replace(/\.webp$/i,".png");
+  else if(/\.png$/i.test(s))i.src=s.replace(/\.png$/i,".webp")
+},true);
 
 // lightbox
 const lb=$(".lightbox"),lbImg=lb.querySelector("img"),lbScroll=lb.querySelector(".lb-scroll");
+
 function openLb(el){
-    if(!el.dataset.open) return; // Don't open if no image source
-    delete lbImg.dataset.fb;
-    lbImg.src=el.dataset.open;
-    lbImg.alt=el.dataset.title;
-    lb.querySelector("h4").textContent=el.dataset.title;
-    lbScroll.classList.toggle("wide",!!el.dataset.wide);
-    lbScroll.scrollTop=0;
-    lb.classList.add("open");
-    document.body.style.overflow="hidden"
+  if(!el.dataset.open) return;
+  lockScroll();
+  
+  delete lbImg.dataset.fb;
+  lbImg.src=el.dataset.open;
+  lbImg.alt=el.dataset.title;
+  lb.querySelector("h4").textContent=el.dataset.title;
+  lbScroll.classList.toggle("wide",!!el.dataset.wide);
+  lbScroll.scrollTop=0;
+  lb.classList.add("open");
 }
-function closeLb(){lb.classList.remove("open");document.body.style.overflow=""}
-document.addEventListener("click",e=>{const t=e.target.closest("[data-open]");if(t)openLb(t)});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLb();if(e.key==="Enter"&&e.target.matches("[data-open]"))openLb(e.target)});
+
+function closeLb(){
+  lb.classList.remove("open");
+  unlockScroll();
+}
+
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-open]");
+  if(t) openLb(t);
+});
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") closeLb();
+  if(e.key==="Enter" && e.target.matches("[data-open]")) openLb(e.target);
+});
+
 lb.querySelector(".lb-close").onclick=closeLb;
-lb.addEventListener("click",e=>{if(e.target===lb||e.target===lbScroll)closeLb()});
+lb.addEventListener("click",e=>{
+  if(e.target===lb || e.target===lbScroll) closeLb();
+});
 
 // reveal observer
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.classList.add("in");
+    io.unobserve(e.target);
+  }
+}),{threshold:.12});
+
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
 $("#yr").textContent=new Date().getFullYear();
