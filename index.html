@@ -5,12 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Elina Vardanyan — UI/UX & Shopify Designer-Developer</title>
 <meta name="description" content="Portfolio of Elina Vardanyan: UI/UX product design case studies, landing pages and Shopify store development." />
-<meta property="og:title" content="Elina Vardanyan — UI/UX & Shopify Designer-Developer" />
-<meta property="og:description" content="Product design case studies, landing pages and Shopify stores." />
-<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <style>
 :root{
   --bg:#0a0a0a; --ink:#f4f4f0; --dim:#9a9a92; --line:#2a2a2a;
@@ -21,24 +18,23 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
 h1,h2,h3{font-weight:900;line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
 em{font-style:normal;color:var(--acid)}
 .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acid);display:inline-flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--acid)}
 
-/* nav */
-header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px)}
+header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(10,10,10,.86);backdrop-filter:blur(12px)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-.logo{font-weight:900;font-size:1.15rem;text-decoration:none;text-transform:uppercase;letter-spacing:-.02em}
+.logo{font-weight:900;font-size:1.15rem;text-transform:uppercase;letter-spacing:-.02em}
 .logo span{color:var(--acid)}
 .nav ul{display:none;list-style:none;gap:4px}
 .nav ul a{text-decoration:none;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;transition:color .25s}
 .nav ul a:hover{color:var(--acid)}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .25s,background .25s,color .25s,border-color .25s}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .25s,background .25s,color .25s,border-color .25s;background:transparent;color:var(--ink)}
 .btn-acid{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
 .btn-acid:hover{background:var(--ink);border-color:var(--ink);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--acid)}
 .btn-ghost{background:transparent;color:var(--ink)}
@@ -57,7 +53,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid va
 .mobile-menu a:hover{color:var(--acid)}
 .nav-cta{display:none}
 
-/* hero */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
@@ -74,14 +69,12 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid va
 .dot{display:inline-block;width:9px;height:9px;background:var(--acid);margin-right:10px;animation:blink 1.6s steps(2) infinite}
 @keyframes blink{50%{opacity:.25}}
 
-/* ticker */
 .ticker{background:var(--acid);color:var(--acid-ink);padding:16px 0;overflow:hidden;border-block:1px solid var(--acid)}
 .ticker-track{display:flex;width:max-content;animation:scroll 32s linear infinite}
 .ticker-track span{font-weight:900;font-size:clamp(1.1rem,2.6vw,1.7rem);text-transform:uppercase;letter-spacing:-.01em;padding:0 20px;white-space:nowrap}
 .ticker-track span::after{content:"✦";margin-left:40px}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
-/* sections */
 section{padding:clamp(80px,12vw,150px) 0}
 .sec-head{display:grid;gap:18px;margin-bottom:56px}
 .sec-head h2{font-size:clamp(2.6rem,8vw,5.4rem)}
@@ -92,50 +85,22 @@ section{padding:clamp(80px,12vw,150px) 0}
 .group-title::after{content:"";flex:1;height:1px;background:var(--line)}
 .group-title i{font-style:normal;color:var(--acid)}
 
-/* Light editorial work section */
-#work{background:var(--work-bg);color:var(--work-ink);--bg:var(--work-bg);--ink:var(--work-ink);--dim:var(--work-dim);--line:var(--work-line);--media:var(--work-line);--card-bg:var(--work-bg);--thumb-bg:var(--work-line)}
-#work .eyebrow,#work .group-title i,#work .num,#work .steps b{color:var(--ink)}
-#work em{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:.12em;text-underline-offset:.08em}
+#work{background:var(--work-bg);color:var(--work-ink)}
+#work .eyebrow,#work .group-title i,#work .num,#work .steps b{color:var(--work-ink)}
+#work em{color:var(--work-ink);text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:.12em;text-underline-offset:.08em}
 #work .group:last-child{margin-bottom:0}
-#shopify .group{margin-bottom:0}
+#work .tag{border-color:var(--work-line);color:var(--work-dim)}
+#work .case{border-bottom-color:var(--work-line)}
+#work .steps li{border-top-color:var(--work-line)}
+#work .case-media{background:var(--work-line);border-color:var(--work-line)}
+#work .case-media img{object-position:top center}
 
-/* case cards */
 .case{display:grid;gap:30px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
 .case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.case-media{
-  position:relative;
-  overflow:hidden;
-  background:var(--media);
-  border:1px solid var(--line);
-  aspect-ratio: 16/10; 
-  cursor:zoom-in;
-}
-.case-media::after{
-  content:"VIEW CASE ↗";
-  position:absolute;
-  left:14px;bottom:14px;
-  background:var(--acid);
-  color:var(--acid-ink);
-  padding:9px 14px;
-  font-family:var(--mono);
-  font-size:.68rem;
-  font-weight:700;
-  letter-spacing:.12em;
-  z-index:2;
-  pointer-events: none;
-}
-.case-media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  object-position: top center;
-  display:block;
-  transition: transform 0.6s ease;
-}
-.case-media:hover img {
-  transform: scale(1.05);
-}
-
+.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);aspect-ratio:16/10;cursor:pointer}
+.case-media::after{content:"VIEW CASE";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em;z-index:2;pointer-events:none}
+.case-media img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s ease}
+.case-media:hover img{transform:scale(1.05)}
 .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--acid);text-transform:uppercase}
 .case h3{font-size:clamp(2.2rem,6.5vw,3.8rem);margin:10px 0 14px}
 .case .desc{color:var(--dim);font-size:1.02rem}
@@ -146,11 +111,10 @@ section{padding:clamp(80px,12vw,150px) 0}
 .steps b{font-family:var(--mono);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acid);padding-top:3px}
 .steps span{color:var(--dim)}
 
-/* landing grid */
 .grid{display:grid;gap:20px}
 .card{background:var(--card-bg);border:1px solid var(--line);padding:14px;transition:transform .35s,border-color .35s,box-shadow .35s}
 .card:hover{transform:translate(-3px,-3px);border-color:var(--acid);box-shadow:6px 6px 0 var(--acid)}
-.card .thumb{overflow:hidden;aspect-ratio:16/10;background:var(--thumb-bg);cursor:zoom-in;position:relative;border:1px solid var(--line)}
+.card .thumb{overflow:hidden;aspect-ratio:16/10;background:var(--thumb-bg);cursor:pointer;position:relative;border:1px solid var(--line)}
 .card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s}
 .card:hover .thumb img{transform:scale(1.04)}
 .card-body{padding:20px 6px 8px}
@@ -158,7 +122,6 @@ section{padding:clamp(80px,12vw,150px) 0}
 .card p{color:var(--dim);font-size:.95rem}
 .card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 
-/* shopify */
 .shop{display:grid;gap:34px;background:var(--acid);color:var(--acid-ink);padding:clamp(24px,5vw,60px);position:relative;border:1px solid var(--acid)}
 .shop .eyebrow{color:var(--acid-ink)}
 .shop .eyebrow::before{background:var(--acid-ink)}
@@ -167,12 +130,10 @@ section{padding:clamp(80px,12vw,150px) 0}
 .shop .tag{border-color:#b8d92e;color:#2c2c22}
 .shop .btn{border-color:var(--acid-ink);background:var(--acid-ink);color:var(--acid)}
 .shop .btn:hover{background:transparent;color:var(--acid-ink);box-shadow:4px 4px 0 var(--acid-ink)}
-.shop-frame{position:relative;border:10px solid var(--acid-ink);background:var(--acid-ink);overflow:hidden;aspect-ratio:4/4.6;cursor:zoom-in;box-shadow:14px 14px 0 rgba(10,10,10,.25)}
-.shop-frame img{width:100%;height:auto;animation:shopScroll 24s ease-in-out infinite alternate}
-@keyframes shopScroll{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 460px))}}
+.shop-frame{position:relative;border:10px solid var(--acid-ink);background:var(--acid-ink);overflow:hidden;aspect-ratio:4/4.6;cursor:pointer;box-shadow:14px 14px 0 rgba(10,10,10,.25)}
+.shop-frame img{width:100%;height:auto}
 .shop-frame::after{content:"AUTO-SCROLLING PREVIEW";position:absolute;left:12px;bottom:12px;background:var(--acid);color:var(--acid-ink);padding:7px 12px;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.14em}
 
-/* services */
 #services{border-top:1px solid var(--line)}
 .services{display:grid;gap:16px}
 .service{display:flex;flex-direction:column;border:1px solid var(--line);padding:clamp(24px,3vw,36px);background:#101010;transition:transform .3s,border-color .3s,box-shadow .3s}
@@ -183,9 +144,7 @@ section{padding:clamp(80px,12vw,150px) 0}
 .service ul{list-style:none;display:grid;gap:10px;margin-bottom:30px;flex:1}
 .service li{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding-top:10px;border-top:1px solid var(--line);display:flex;gap:10px}
 .service li::before{content:"→";color:var(--acid)}
-.service .btn{align-self:flex-start}
 
-/* skills */
 #skills{border-top:1px solid var(--line)}
 .skills{display:grid;gap:16px}
 .skill-box{border:1px solid var(--line);padding:30px;background:#101010;transition:border-color .3s}
@@ -196,7 +155,6 @@ section{padding:clamp(80px,12vw,150px) 0}
 .pill{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;padding:9px 14px;border:1px solid var(--line);color:var(--dim);transition:.25s}
 .pill:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
 
-/* contact */
 .contact{text-align:center;border-top:1px solid var(--line)}
 .contact h2{font-size:clamp(3rem,13vw,9rem);margin:22px 0 34px}
 .contact .mail{font-weight:800;font-size:clamp(1.15rem,4.5vw,2.2rem);text-decoration:none;border-bottom:3px solid var(--acid);word-break:break-all;text-transform:lowercase;letter-spacing:-.01em}
@@ -205,24 +163,16 @@ section{padding:clamp(80px,12vw,150px) 0}
 footer{border-top:1px solid var(--line);padding:28px 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
-/* lightbox */
 .lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,5,5,.95);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
 .lightbox.open{opacity:1;pointer-events:auto}
 .lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
 .lb-bar h4{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
-.lb-close{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer;flex-shrink:0;transition:.25s}
+.lb-close{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer;flex-shrink:0}
 .lb-close:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
-.lb-scroll{
-  flex:1;
-  overflow-y: auto;
-  padding:24px 12px 60px;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
+.lb-scroll{flex:1;overflow-y:auto;padding:24px 12px 60px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .lb-scroll img{margin:0 auto;width:auto;max-width:min(1200px,100%);height:auto;border:1px solid var(--line)}
 .lb-scroll.wide img{max-width:min(1400px,100%)}
 
-/* reveal */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
@@ -239,7 +189,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   .mobile-menu{display:none}
 }
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
+  *,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}
   .reveal{opacity:1;transform:none}
 }
 </style>
@@ -248,7 +198,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo">Elina<span>©</span></a>
+    <a href="#top" class="logo">Elina<span>&#169;</span></a>
     <ul>
       <li><a href="#work">Work</a></li>
       <li><a href="#services">Services</a></li>
@@ -259,32 +209,38 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
+
 <nav class="mobile-menu" aria-label="Mobile">
   <a href="#work">Work</a>
   <a href="#services">Services</a>
   <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
-  <a href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <a href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn</a>
 </nav>
 
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <span class="eyebrow">UI/UX & Shopify Designer-Developer</span>
+      <span class="eyebrow">UI/UX &amp; Shopify Designer-Developer</span>
       <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
       <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
       <div class="hero-ctas">
-        <a href="#work" class="btn btn-acid">View my work ↓</a>
+        <a href="#work" class="btn btn-acid">View my work</a>
         <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
       </div>
       <div class="hero-meta">
         <span><span class="dot"></span>Available for new roles</span>
-        <span>Full-time & freelance</span>
+        <span>Full-time &amp; freelance</span>
       </div>
     </div>
   </section>
 
-  <div class="ticker" aria-hidden="true"><div class="ticker-track"></div></div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Shopify Development</span><span>UX Research</span><span>Figma to Shopify</span><span>Design Systems</span><span>Landing Pages</span><span>Prototyping</span><span>Liquid Sections</span><span>Mobile-First</span>
+      <span>Shopify Development</span><span>UX Research</span><span>Figma to Shopify</span><span>Design Systems</span><span>Landing Pages</span><span>Prototyping</span><span>Liquid Sections</span><span>Mobile-First</span>
+    </div>
+  </div>
 
   <section id="work">
     <div class="wrap">
@@ -296,120 +252,114 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
       <div class="group">
         <h3 class="group-title"><i>01 /</i> Case Studies</h3>
-        <div id="cases">
-          <!-- Pairbe -->
-          <article class="case reveal">
-            <div class="case-media" data-open="Pairbe.png" data-title="Pairbe" role="button" tabindex="0" aria-label="Open Pairbe case study">
-              <img src="Pairbe.png" alt="Pairbe case study" loading="lazy"/>
-            </div>
-            <div>
-              <span class="num">01 — Mobile app · Social</span>
-              <h3>Pairbe</h3>
-              <p class="desc">A social network app that uses geolocation and psychological tests to connect like-minded people nearby.</p>
-              <ul class="steps">
-                <li><b>Research</b><span>Interviews and personas showed that people want real connection, not endless swiping.</span></li>
-                <li><b>Solution</b><span>Personality tests plus location-based matching, wrapped in a warm and simple UI.</span></li>
-                <li><b>Outcome</b><span>A clickable prototype and a design system ready for development.</span></li>
-              </ul>
-              <div class="tags">
-                <span class="tag">User research</span><span class="tag">Personas</span><span class="tag">User flows</span><span class="tag">Mobile UI</span>
-              </div>
-              <button class="btn btn-acid btn-sm" data-open="Pairbe.png" data-title="Pairbe">Open case study ↗</button>
-            </div>
-          </article>
 
-          <!-- Stufizz -->
-          <article class="case reveal">
-            <div class="case-media" data-open="Stufizz.png" data-title="Stufizz" role="button" tabindex="0" aria-label="Open Stufizz case study">
-              <img src="Stufizz.png" alt="Stufizz case study" loading="lazy"/>
+        <article class="case reveal">
+          <div class="case-media" data-open="Pairbe.png" data-title="Pairbe">
+            <img src="Pairbe.png" alt="Pairbe case study" loading="lazy"/>
+          </div>
+          <div>
+            <span class="num">01 — Mobile app · Social</span>
+            <h3>Pairbe</h3>
+            <p class="desc">A social network app that uses geolocation and psychological tests to connect like-minded people nearby.</p>
+            <ul class="steps">
+              <li><b>Research</b><span>Interviews and personas showed that people want real connection, not endless swiping.</span></li>
+              <li><b>Solution</b><span>Personality tests plus location-based matching, wrapped in a warm and simple UI.</span></li>
+              <li><b>Outcome</b><span>A clickable prototype and a design system ready for development.</span></li>
+            </ul>
+            <div class="tags">
+              <span class="tag">User research</span><span class="tag">Personas</span><span class="tag">User flows</span><span class="tag">Mobile UI</span>
             </div>
-            <div>
-              <span class="num">02 — Web & app · Marketplace</span>
-              <h3>Stufizz</h3>
-              <p class="desc">A bartering platform that lets users connect and trade items within their local communities.</p>
-              <ul class="steps">
-                <li><b>Research</b><span>Mapped how trust forms between strangers trading face to face.</span></li>
-                <li><b>Solution</b><span>Clear listings, swap offers and community profiles that build trust.</span></li>
-                <li><b>Outcome</b><span>A complete trading flow, from listing an item to a confirmed swap.</span></li>
-              </ul>
-              <div class="tags">
-                <span class="tag">Journey mapping</span><span class="tag">IA</span><span class="tag">Wireframes</span><span class="tag">Prototype</span>
-              </div>
-              <button class="btn btn-acid btn-sm" data-open="Stufizz.png" data-title="Stufizz">Open case study ↗</button>
-            </div>
-          </article>
+            <button class="btn btn-acid btn-sm" data-open="Pairbe.png" data-title="Pairbe">Open case study</button>
+          </div>
+        </article>
 
-          <!-- Inflow Music -->
-          <article class="case reveal">
-            <div class="case-media" data-open="Inflow.png" data-title="Inflow Music" role="button" tabindex="0" aria-label="Open Inflow Music case study">
-              <img src="Inflow.png" alt="Inflow Music case study" loading="lazy"/>
+        <article class="case reveal">
+          <div class="case-media" data-open="Stufizz.png" data-title="Stufizz">
+            <img src="Stufizz.png" alt="Stufizz case study" loading="lazy"/>
+          </div>
+          <div>
+            <span class="num">02 — Web &amp; app · Marketplace</span>
+            <h3>Stufizz</h3>
+            <p class="desc">A bartering platform that lets users connect and trade items within their local communities.</p>
+            <ul class="steps">
+              <li><b>Research</b><span>Mapped how trust forms between strangers trading face to face.</span></li>
+              <li><b>Solution</b><span>Clear listings, swap offers and community profiles that build trust.</span></li>
+              <li><b>Outcome</b><span>A complete trading flow, from listing an item to a confirmed swap.</span></li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Journey mapping</span><span class="tag">IA</span><span class="tag">Wireframes</span><span class="tag">Prototype</span>
             </div>
-            <div>
-              <span class="num">03 — Web3 · Music</span>
-              <h3>Inflow Music</h3>
-              <p class="desc">A social token platform that lets artists launch their own tokens and NFTs and build closer ties with fans.</p>
-              <ul class="steps">
-                <li><b>Research</b><span>Artists found crypto tools intimidating and fans didn't know what they were buying.</span></li>
-                <li><b>Solution</b><span>Plain-language token launches and fan-first artist pages.</span></li>
-                <li><b>Outcome</b><span>A simpler Web3 experience for both artists and fans.</span></li>
-              </ul>
-              <div class="tags">
-                <span class="tag">Web3 UX</span><span class="tag">Empathy maps</span><span class="tag">Dashboard</span><span class="tag">UI</span>
-              </div>
-              <button class="btn btn-acid btn-sm" data-open="Inflow.png" data-title="Inflow Music">Open case study ↗</button>
-            </div>
-          </article>
+            <button class="btn btn-acid btn-sm" data-open="Stufizz.png" data-title="Stufizz">Open case study</button>
+          </div>
+        </article>
 
-          <!-- Moody -->
-          <article class="case reveal">
-            <div class="case-media" data-open="Moody.png" data-title="Moody" role="button" tabindex="0" aria-label="Open Moody case study">
-              <img src="Moody.png" alt="Moody case study" loading="lazy"/>
+        <article class="case reveal">
+          <div class="case-media" data-open="Inflow.png" data-title="Inflow Music">
+            <img src="Inflow.png" alt="Inflow Music case study" loading="lazy"/>
+          </div>
+          <div>
+            <span class="num">03 — Web3 · Music</span>
+            <h3>Inflow Music</h3>
+            <p class="desc">A social token platform that lets artists launch their own tokens and NFTs and build closer ties with fans.</p>
+            <ul class="steps">
+              <li><b>Research</b><span>Artists found crypto tools intimidating and fans didn't know what they were buying.</span></li>
+              <li><b>Solution</b><span>Plain-language token launches and fan-first artist pages.</span></li>
+              <li><b>Outcome</b><span>A simpler Web3 experience for both artists and fans.</span></li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Web3 UX</span><span class="tag">Empathy maps</span><span class="tag">Dashboard</span><span class="tag">UI</span>
             </div>
-            <div>
-              <span class="num">04 — AI · Music player</span>
-              <h3>Moody</h3>
-              <p class="desc">An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.</p>
-              <ul class="steps">
-                <li><b>Research</b><span>People search for music by mood far more often than by title.</span></li>
-                <li><b>Solution</b><span>A conversational prompt plus mood-reactive visuals.</span></li>
-                <li><b>Outcome</b><span>A new kind of player, plus a dedicated landing page.</span></li>
-              </ul>
-              <div class="tags">
-                <span class="tag">AI UX</span><span class="tag">Concept</span><span class="tag">Interaction</span><span class="tag">UI</span>
-              </div>
-              <button class="btn btn-acid btn-sm" data-open="Moody.png" data-title="Moody">Open case study ↗</button>
-            </div>
-          </article>
+            <button class="btn btn-acid btn-sm" data-open="Inflow.png" data-title="Inflow Music">Open case study</button>
+          </div>
+        </article>
 
-          <!-- CryptoGate -->
-          <article class="case reveal">
-            <div class="case-media" data-open="Cryptogate.png" data-title="CryptoGate" role="button" tabindex="0" aria-label="Open CryptoGate case study">
-              <img src="Cryptogate.png" alt="CryptoGate case study" loading="lazy"/>
+        <article class="case reveal">
+          <div class="case-media" data-open="Moody.png" data-title="Moody">
+            <img src="Moody.png" alt="Moody case study" loading="lazy"/>
+          </div>
+          <div>
+            <span class="num">04 — AI · Music player</span>
+            <h3>Moody</h3>
+            <p class="desc">An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.</p>
+            <ul class="steps">
+              <li><b>Research</b><span>People search for music by mood far more often than by title.</span></li>
+              <li><b>Solution</b><span>A conversational prompt plus mood-reactive visuals.</span></li>
+              <li><b>Outcome</b><span>A new kind of player, plus a dedicated landing page.</span></li>
+            </ul>
+            <div class="tags">
+              <span class="tag">AI UX</span><span class="tag">Concept</span><span class="tag">Interaction</span><span class="tag">UI</span>
             </div>
-            <div>
-              <span class="num">05 — Fintech · Crypto</span>
-              <h3>CryptoGate</h3>
-              <p class="desc">A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.</p>
-              <ul class="steps">
-                <li><b>Research</b><span>Beginners feared mistakes; experts wanted speed.</span></li>
-                <li><b>Solution</b><span>Step-by-step transactions with clear confirmations and trust signals.</span></li>
-                <li><b>Outcome</b><span>Confident, error-proof deposit and withdrawal flows.</span></li>
-              </ul>
-              <div class="tags">
-                <span class="tag">Fintech UX</span><span class="tag">Security flows</span><span class="tag">Design system</span><span class="tag">Responsive</span>
-              </div>
-              <button class="btn btn-acid btn-sm" data-open="Cryptogate.png" data-title="CryptoGate">Open case study ↗</button>
+            <button class="btn btn-acid btn-sm" data-open="Moody.png" data-title="Moody">Open case study</button>
+          </div>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-media" data-open="Cryptogate.png" data-title="CryptoGate">
+            <img src="Cryptogate.png" alt="CryptoGate case study" loading="lazy"/>
+          </div>
+          <div>
+            <span class="num">05 — Fintech · Crypto</span>
+            <h3>CryptoGate</h3>
+            <p class="desc">A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.</p>
+            <ul class="steps">
+              <li><b>Research</b><span>Beginners feared mistakes; experts wanted speed.</span></li>
+              <li><b>Solution</b><span>Step-by-step transactions with clear confirmations and trust signals.</span></li>
+              <li><b>Outcome</b><span>Confident, error-proof deposit and withdrawal flows.</span></li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Fintech UX</span><span class="tag">Security flows</span><span class="tag">Design system</span><span class="tag">Responsive</span>
             </div>
-          </article>
-        </div>
+            <button class="btn btn-acid btn-sm" data-open="Cryptogate.png" data-title="CryptoGate">Open case study</button>
+          </div>
+        </article>
       </div>
 
       <div class="group">
         <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
-        <div class="grid" id="landing">
-          <!-- Space Goblin -->
+        <div class="grid">
+
           <article class="card reveal">
-            <div class="thumb" data-open="Goblin.png" data-title="Space Goblin" role="button" tabindex="0" aria-label="Open Space Goblin">
+            <div class="thumb" data-open="Goblin.png" data-title="Space Goblin">
               <img src="Goblin.png" alt="Space Goblin landing page" loading="lazy"/>
             </div>
             <div class="card-body">
@@ -424,9 +374,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
             </div>
           </article>
 
-          <!-- Moody Landing -->
           <article class="card reveal">
-            <div class="thumb" data-open="Moody.png" data-title="Moody" role="button" tabindex="0" aria-label="Open Moody">
+            <div class="thumb" data-open="Moody.png" data-title="Moody">
               <img src="Moody.png" alt="Moody landing page" loading="lazy"/>
             </div>
             <div class="card-body">
@@ -436,16 +385,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
                 <span class="tag">AI</span><span class="tag">Landing page</span><span class="tag">Live</span>
               </div>
               <div class="card-actions">
-                <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/Moody_Landing-Page/" target="_blank" rel="noopener">Visit live ↗</a>
+                <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/Moody_Landing-Page/" target="_blank" rel="noopener">Visit live</a>
                 <button class="btn btn-ghost btn-sm" data-open="Moody.png" data-title="Moody">Preview</button>
               </div>
             </div>
           </article>
 
-          <!-- KIMONO -->
           <article class="card reveal">
-            <div class="thumb" data-title="KIMONO" role="button" tabindex="0" aria-label="Open KIMONO">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='100%25' height='100%25' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='24' fill='%23666'%3EKIMONO PREVIEW%3C/text%3E%3C/svg%3E" alt="KIMONO landing page" loading="lazy"/>
+            <div class="thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='100%25' height='100%25' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='24' fill='%23666'%3EKIMONO%3C/text%3E%3C/svg%3E" alt="KIMONO landing page" loading="lazy"/>
             </div>
             <div class="card-body">
               <h3>KIMONO</h3>
@@ -454,14 +402,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
                 <span class="tag">Culture</span><span class="tag">Exhibition</span><span class="tag">Live</span>
               </div>
               <div class="card-actions">
-                <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/KIMONO/" target="_blank" rel="noopener">Visit live ↗</a>
+                <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/KIMONO/" target="_blank" rel="noopener">Visit live</a>
               </div>
             </div>
           </article>
 
-          <!-- Subliminator -->
           <article class="card reveal">
-            <div class="thumb" data-open="Subliminator.png" data-title="Subliminator" role="button" tabindex="0" aria-label="Open Subliminator">
+            <div class="thumb" data-open="Subliminator.png" data-title="Subliminator">
               <img src="Subliminator.png" alt="Subliminator landing page" loading="lazy"/>
             </div>
             <div class="card-body">
@@ -475,6 +422,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
               </div>
             </div>
           </article>
+
         </div>
       </div>
     </div>
@@ -492,10 +440,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
             <div class="tags">
               <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
             </div>
-            <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store ↗</button>
+            <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store</button>
           </div>
-          <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store" role="button" tabindex="0" aria-label="Open Neverlate store preview">
-            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy" />
+          <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store">
+            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -509,9 +457,44 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <h2>Services</h2>
       </div>
       <div class="services">
-        <article class="service reveal"><span class="snum">01</span><h3>Shopify store setup</h3><p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p><ul><li>Store setup & theme customization</li><li>Custom Liquid sections</li><li>Figma → Shopify builds</li><li>App integration</li><li>Product page optimization</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-        <article class="service reveal"><span class="snum">02</span><h3>UX research & strategy</h3><p>Clear answers about your users before a single screen is designed.</p><ul><li>User research & personas</li><li>Empathy mapping</li><li>Customer journey maps</li><li>User flows</li><li>Information architecture</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
-        <article class="service reveal"><span class="snum">03</span><h3>UI design & landing pages</h3><p>Sharp, responsive interfaces and landing pages built to convert.</p><ul><li>Wireframes & prototypes</li><li>UI design & design systems</li><li>Responsive web design</li><li>Conversion-focused landing pages</li></ul><a href="#contact" class="btn btn-ghost btn-sm">Let's talk →</a></article>
+        <article class="service reveal">
+          <span class="snum">01</span>
+          <h3>Shopify store setup</h3>
+          <p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p>
+          <ul>
+            <li>Store setup &amp; theme customization</li>
+            <li>Custom Liquid sections</li>
+            <li>Figma to Shopify builds</li>
+            <li>App integration</li>
+            <li>Product page optimization</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm">Let's talk</a>
+        </article>
+        <article class="service reveal">
+          <span class="snum">02</span>
+          <h3>UX research &amp; strategy</h3>
+          <p>Clear answers about your users before a single screen is designed.</p>
+          <ul>
+            <li>User research &amp; personas</li>
+            <li>Empathy mapping</li>
+            <li>Customer journey maps</li>
+            <li>User flows</li>
+            <li>Information architecture</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm">Let's talk</a>
+        </article>
+        <article class="service reveal">
+          <span class="snum">03</span>
+          <h3>UI design &amp; landing pages</h3>
+          <p>Sharp, responsive interfaces and landing pages built to convert.</p>
+          <ul>
+            <li>Wireframes &amp; prototypes</li>
+            <li>UI design &amp; design systems</li>
+            <li>Responsive web design</li>
+            <li>Conversion-focused landing pages</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-sm">Let's talk</a>
+        </article>
       </div>
     </div>
   </section>
@@ -520,119 +503,189 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">What I bring</span>
-        <h2>Skills & <em>tools</em></h2>
+        <h2>Skills &amp; <em>tools</em></h2>
       </div>
       <div class="skills">
-        <div class="skill-box reveal"><h3><i>[01]</i>Shopify & E-commerce</h3><div class="pills">
-          <span class="pill">Store Setup & Development</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma → Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product & Landing Page Optimization</span><span class="pill">App Integration</span><span class="pill">Product Listings & Store Management</span><span class="pill">Mobile-First Design</span>
-        </div></div>
-        <div class="skill-box reveal"><h3><i>[02]</i>UI/UX & Product</h3><div class="pills">
-          <span class="pill">User Research & Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Customer Journey Mapping</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing & Prototyping</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Web Design</span>
-        </div></div>
-        <div class="skill-box reveal"><h3><i>[03]</i>Tools</h3><div class="pills">
-          <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
-        </div></div>
+        <div class="skill-box reveal">
+          <h3><i>[01]</i> Shopify &amp; E-commerce</h3>
+          <div class="pills">
+            <span class="pill">Store Setup</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma to Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product Optimization</span><span class="pill">App Integration</span><span class="pill">Mobile-First</span>
+          </div>
+        </div>
+        <div class="skill-box reveal">
+          <h3><i>[02]</i> UI/UX &amp; Product</h3>
+          <div class="pills">
+            <span class="pill">User Research</span><span class="pill">Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Journey Maps</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Design</span>
+          </div>
+        </div>
+        <div class="skill-box reveal">
+          <h3><i>[03]</i> Tools</h3>
+          <div class="pills">
+            <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <div class="wrap">
-      <span class="eyebrow reveal">Open to full-time & freelance</span>
+      <span class="eyebrow reveal">Open to full-time &amp; freelance</span>
       <h2 class="reveal">Let's work <em>together.</em></h2>
       <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
       <div class="row reveal">
         <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram ↗</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="yr"></span> Elina Vardanyan</span><span>Telegram — @elinavardanyan</span></div></footer>
+<footer>
+  <div class="wrap">
+    <span>&#169; <span id="yr">2026</span> Elina Vardanyan</span>
+    <span>Telegram — @elinavardanyan</span>
+  </div>
+</footer>
 
 <div class="lightbox" role="dialog" aria-modal="true" aria-label="Project preview">
-  <div class="lb-bar"><h4></h4><button class="lb-close" aria-label="Close">✕</button></div>
-  <div class="lb-scroll"><img alt="" /></div>
+  <div class="lb-bar">
+    <h4></h4>
+    <button class="lb-close" aria-label="Close">✕</button>
+  </div>
+  <div class="lb-scroll"><img alt=""/></div>
 </div>
 
 <script>
-// Ticker
-const words=["Shopify Development","UX Research","Figma → Shopify","Design Systems","Landing Pages","Prototyping","Liquid Sections","Mobile-First"];
-document.querySelector(".ticker-track").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).join("");
+(function(){
+  'use strict';
 
-// Rotator
-const rot=["design","build","launch","research","ship"];let ri=0;
-setInterval(()=>{ri=(ri+1)%rot.length;document.querySelector(".rotator").innerHTML=`<span>${rot[ri]}</span>`},2200);
+  // CRITICAL: Reset body styles on load to prevent stuck scroll-lock after refresh
+  window.addEventListener('DOMContentLoaded', function(){
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+  });
 
-// Menu
-const burger=document.querySelector(".burger");
-burger.onclick=()=>{
-  const isOpen = document.body.classList.toggle("menu-open");
-  burger.setAttribute("aria-expanded", isOpen);
-};
-
-document.querySelectorAll(".mobile-menu a").forEach(a=>{
-  a.onclick=()=>document.body.classList.remove("menu-open");
-});
-
-// Image fallback
-document.addEventListener("error",e=>{
-  const i=e.target;
-  if(i.tagName!=="IMG"||i.dataset.fb)return;
-  i.dataset.fb=1;
-  const s=i.getAttribute("src")||"";
-  if(/\.webp$/i.test(s))i.src=s.replace(/\.webp$/i,".png");
-  else if(/\.png$/i.test(s))i.src=s.replace(/\.png$/i,".webp")
-},true);
-
-// Lightbox
-const lb=document.querySelector(".lightbox"),lbImg=lb.querySelector("img"),lbScroll=lb.querySelector(".lb-scroll");
-
-function openLb(el){
-  if(!el.dataset.open) return;
-  delete lbImg.dataset.fb;
-  lbImg.src=el.dataset.open;
-  lbImg.alt=el.dataset.title;
-  lb.querySelector("h4").textContent=el.dataset.title;
-  lbScroll.classList.toggle("wide",!!el.dataset.wide);
-  lbScroll.scrollTop=0;
-  lb.classList.add("open");
-  document.body.style.overflow="hidden";
-}
-
-function closeLb(){
-  lb.classList.remove("open");
-  document.body.style.overflow="";
-}
-
-document.addEventListener("click",e=>{
-  const t=e.target.closest("[data-open]");
-  if(t) openLb(t);
-});
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") closeLb();
-  if(e.key==="Enter" && e.target.matches("[data-open]")) openLb(e.target);
-});
-
-lb.querySelector(".lb-close").onclick=closeLb;
-lb.addEventListener("click",e=>{
-  if(e.target===lb || e.target===lbScroll) closeLb();
-});
-
-// Reveal observer
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){
-    e.target.classList.add("in");
-    io.unobserve(e.target);
+  // Rotator
+  var rot = ['design','build','launch','research','ship'];
+  var ri = 0;
+  var rotEl = document.querySelector('.rotator');
+  if(rotEl){
+    setInterval(function(){
+      ri = (ri+1) % rot.length;
+      rotEl.innerHTML = '<span>' + rot[ri] + '</span>';
+    }, 2200);
   }
-}),{threshold:.12});
 
-document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+  // Menu
+  var burger = document.querySelector('.burger');
+  if(burger){
+    burger.addEventListener('click', function(){
+      var isOpen = document.body.classList.toggle('menu-open');
+      burger.setAttribute('aria-expanded', isOpen);
+    });
+  }
+  var mobileLinks = document.querySelectorAll('.mobile-menu a');
+  for(var i=0;i<mobileLinks.length;i++){
+    mobileLinks[i].addEventListener('click', function(){
+      document.body.classList.remove('menu-open');
+    });
+  }
 
-document.getElementById("yr").textContent=new Date().getFullYear();
+  // Image fallback
+  document.addEventListener('error', function(e){
+    var img = e.target;
+    if(img.tagName !== 'IMG' || img.dataset.fb) return;
+    img.dataset.fb = '1';
+    var src = img.getAttribute('src') || '';
+    if(/\.webp$/i.test(src)) img.src = src.replace(/\.webp$/i,'.png');
+    else if(/\.png$/i.test(src)) img.src = src.replace(/\.png$/i,'.webp');
+  }, true);
+
+  // Lightbox with Safari-proof scroll lock
+  var lb = document.querySelector('.lightbox');
+  var lbImg = lb ? lb.querySelector('img') : null;
+  var lbScroll = lb ? lb.querySelector('.lb-scroll') : null;
+  var lbTitle = lb ? lb.querySelector('h4') : null;
+  var savedScrollY = 0;
+
+  function lockScroll(){
+    savedScrollY = window.scrollY || window.pageYOffset;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + savedScrollY + 'px';
+    document.body.style.width = '100%';
+  }
+
+  function unlockScroll(){
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, savedScrollY);
+  }
+
+  function openLb(el){
+    if(!el || !el.dataset.open) return;
+    if(!lbImg) return;
+    lockScroll();
+    lbImg.dataset.fb = '';
+    lbImg.src = el.dataset.open;
+    lbImg.alt = el.dataset.title || '';
+    if(lbTitle) lbTitle.textContent = el.dataset.title || '';
+    if(lbScroll){
+      lbScroll.classList.toggle('wide', !!el.dataset.wide);
+      lbScroll.scrollTop = 0;
+    }
+    lb.classList.add('open');
+  }
+
+  function closeLb(){
+    if(!lb) return;
+    lb.classList.remove('open');
+    unlockScroll();
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-open]');
+    if(t) openLb(t);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLb();
+    if(e.key === 'Enter' && e.target.matches && e.target.matches('[data-open]')) openLb(e.target);
+  });
+
+  var lbClose = lb ? lb.querySelector('.lb-close') : null;
+  if(lbClose) lbClose.addEventListener('click', closeLb);
+  if(lb){
+    lb.addEventListener('click', function(e){
+      if(e.target === lb || e.target === lbScroll) closeLb();
+    });
+  }
+
+  // Reveal on scroll
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      for(var j=0;j<entries.length;j++){
+        if(entries[j].isIntersecting){
+          entries[j].target.classList.add('in');
+          io.unobserve(entries[j].target);
+        }
+      }
+    }, {threshold: 0.12});
+    var reveals = document.querySelectorAll('.reveal');
+    for(var k=0;k<reveals.length;k++) io.observe(reveals[k]);
+  } else {
+    var allReveals = document.querySelectorAll('.reveal');
+    for(var m=0;m<allReveals.length;m++) allReveals[m].classList.add('in');
+  }
+
+  // Year
+  var yrEl = document.getElementById('yr');
+  if(yrEl) yrEl.textContent = new Date().getFullYear();
+})();
 </script>
 </body>
 </html>
