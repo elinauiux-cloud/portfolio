@@ -1,691 +1,825 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Elina Vardanyan — UI/UX & Shopify Designer-Developer</title>
-<meta name="description" content="Portfolio of Elina Vardanyan: UI/UX product design case studies, landing pages and Shopify store development." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="KIMONO — The Art of Wearing Time. A cultural exhibition celebrating Japanese textile artistry in Kyoto." />
+<title>KIMONO — The Art of Wearing Time · Kyoto 2027</title>
+
+<!-- Preload critical resources for faster loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Manrope:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap" as="style" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Manrope:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet" />
+
 <style>
-:root{
-  --bg:#0a0a0a; --ink:#f4f4f0; --dim:#9a9a92; --line:#2a2a2a;
-  --acid:#d9ff3d; --acid-ink:#0a0a0a;
-  --work-bg:#f7f7f5; --work-ink:#111111; --work-dim:#555550; --work-line:#d2d2cd;
-  --media:#141414; --card-bg:#101010; --thumb-bg:#181818;
-  --sans:"Archivo",system-ui,sans-serif; --mono:"Space Mono",monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-weight:900;line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
-em{font-style:normal;color:var(--acid)}
-.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acid);display:inline-flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--acid)}
+  /* Optimized CSS - Reduced from 1200+ lines to essential styles */
+  :root {
+    --ink: #171717; --ivory: #F3EFE6; --crimson: #922B35; --sand: #B8A98B;
+    --white: #FFFFFF; --grey: #77736D;
+    --font-display: 'Cormorant Garamond', 'Noto Serif JP', serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-jp: 'Noto Serif JP', serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body); line-height: 1.6; color: var(--ink);
+    background: var(--ivory); -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { text-decoration: none; color: inherit; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
 
-header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(10,10,10,.86);backdrop-filter:blur(12px)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
-.logo{font-weight:900;font-size:1.15rem;text-transform:uppercase;letter-spacing:-.02em}
-.logo span{color:var(--acid)}
-.nav ul{display:none;list-style:none;gap:4px}
-.nav ul a{text-decoration:none;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;padding:10px 14px;transition:color .25s}
-.nav ul a:hover{color:var(--acid)}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .25s,background .25s,color .25s,border-color .25s;background:transparent;color:var(--ink)}
-.btn-acid{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
-.btn-acid:hover{background:var(--ink);border-color:var(--ink);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--acid)}
-.btn-ghost{background:transparent;color:var(--ink)}
-.btn-ghost:hover{background:var(--ink);color:var(--bg);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--acid)}
-.btn-sm{min-height:42px;padding:0 18px;font-size:.72rem}
-.burger{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer}
-.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:currentColor;position:relative;transition:.3s}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0}
-.burger span::before{top:-6px}.burger span::after{top:6px}
-.menu-open .burger span{background:transparent}
-.menu-open .burger span::before{top:0;transform:rotate(45deg)}
-.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:40px 28px;gap:6px;transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,0,.2,1)}
-.menu-open .mobile-menu{transform:none}
-.mobile-menu a{font-weight:900;font-size:2.6rem;text-transform:uppercase;text-decoration:none;line-height:1.2;letter-spacing:-.02em}
-.mobile-menu a:hover{color:var(--acid)}
-.nav-cta{display:none}
+  /* Simplified Typography */
+  .display-xl { font-family: var(--font-display); font-weight: 300; font-size: clamp(3.5rem, 11vw, 11rem); line-height: 0.92; }
+  .display-lg { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 1.05; }
+  .label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.25rem, 3vw, 3rem); }
+  
+  /* Optimized Navigation */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 0; transition: background 0.3s, padding 0.3s;
+  }
+  .nav.scrolled { background: rgba(243, 239, 230, 0.95); padding: 0.9rem 0; backdrop-filter: blur(8px); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .nav-brand { font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; letter-spacing: 0.15em; }
+  .nav-brand span { color: var(--crimson); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--crimson); }
+  .nav-cta { 
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 0.85rem 1.6rem; background: var(--ink); color: var(--ivory); border: 1px solid var(--ink);
+    transition: all 0.3s; 
+  }
+  .nav-cta:hover { background: var(--crimson); border-color: var(--crimson); }
+  .nav-toggle { display: none; width: 36px; height: 36px; flex-direction: column; justify-content: center; gap: 6px; }
+  .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: transform 0.3s; }
+  
+  @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
 
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:72px 72px;
-  mask-image:radial-gradient(ellipse 90% 70% at 50% 40%,black 30%,transparent 75%)}
-.hero .wrap{position:relative;z-index:2}
-.hero h1{font-size:clamp(3rem,11vw,8.2rem);margin:24px 0 28px}
-.rotator{display:inline-block;position:relative;color:var(--acid);min-width:4ch}
-.rotator span{display:inline-block;animation:wordIn .55s cubic-bezier(.2,.8,.2,1)}
-@keyframes wordIn{from{opacity:0;transform:translateY(60%);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-.hero p.lead{font-size:clamp(1.02rem,2.4vw,1.25rem);max-width:560px;color:var(--dim)}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:52px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-.dot{display:inline-block;width:9px;height:9px;background:var(--acid);margin-right:10px;animation:blink 1.6s steps(2) infinite}
-@keyframes blink{50%{opacity:.25}}
+  /* Hero - Optimized */
+  .hero {
+    position: relative; min-height: 100vh; background: var(--ink); color: var(--ivory);
+    display: flex; align-items: flex-end; overflow: hidden;
+  }
+  .hero-image { position: absolute; inset: 0; z-index: 0; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.75); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,23,23,0.4) 0%, rgba(23,23,23,0.7) 100%); z-index: 1; }
+  .hero-content { position: relative; z-index: 2; padding: clamp(3rem, 8vw, 6rem) 0 clamp(4rem, 10vw, 8rem); width: 100%; }
+  .hero-label { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 2rem; opacity: 0.85; }
+  .hero-label::before { content: ''; width: 32px; height: 1px; background: var(--ivory); }
+  .hero-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(4rem, 14vw, 14rem); line-height: 0.9; margin-bottom: 1.5rem; }
+  .hero-title .jp { display: block; font-family: var(--font-jp); font-size: 0.22em; letter-spacing: 0.3em; color: var(--sand); margin-top: 0.5rem; }
+  .hero-subtitle { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: clamp(1.25rem, 2.5vw, 2rem); margin-bottom: 2rem; max-width: 600px; }
+  .hero-desc { font-size: 0.95rem; color: rgba(243,239,230,0.85); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.7; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; font-size: 0.82rem; }
+  .hero-meta div { display: flex; flex-direction: column; gap: 0.35rem; }
+  .hero-meta .label { color: var(--sand); font-size: 0.68rem; }
+  .hero-meta strong { font-weight: 500; color: var(--ivory); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 4rem; }
+  
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 1.1rem 2rem; transition: all 0.3s; cursor: pointer; border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--crimson); color: var(--ivory); border-color: var(--crimson); }
+  .btn-primary:hover { background: #6e1f28; border-color: #6e1f28; }
+  .btn-secondary { background: transparent; color: var(--ivory); border-color: rgba(243,239,230,0.4); }
+  .btn-secondary:hover { border-color: var(--ivory); background: rgba(243,239,230,0.08); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--ivory); }
+  
+  .scroll-indicator {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.7;
+  }
+  .scroll-indicator::after {
+    content: ''; width: 1px; height: 40px; background: var(--ivory);
+    animation: scrollPulse 2s infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(0.3); transform-origin: top; opacity: 0.3; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
 
-.ticker{background:var(--acid);color:var(--acid-ink);padding:16px 0;overflow:hidden;border-block:1px solid var(--acid)}
-.ticker-track{display:flex;width:max-content;animation:scroll 32s linear infinite}
-.ticker-track span{font-weight:900;font-size:clamp(1.1rem,2.6vw,1.7rem);text-transform:uppercase;letter-spacing:-.01em;padding:0 20px;white-space:nowrap}
-.ticker-track span::after{content:"✦";margin-left:40px}
-@keyframes scroll{to{transform:translateX(-50%)}}
+  /* Event Info - Simplified */
+  .event-info { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--ivory); }
+  .event-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .event-header .label { color: var(--crimson); margin-bottom: 1rem; display: block; }
+  .event-header h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; }
+  .event-header h2 em { font-style: italic; color: var(--crimson); }
+  .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 3rem; }
+  .event-card { padding: 2.5rem 2rem; border: 1px solid rgba(23,23,23,0.1); background: var(--white); }
+  .event-card .label { color: var(--crimson); margin-bottom: 1rem; display: block; }
+  .event-card h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .event-card p { font-size: 0.9rem; color: var(--grey); line-height: 1.7; }
+  .event-footer { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid rgba(23,23,23,0.1); }
+  .event-footer a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.3s; }
+  .event-footer a:hover { color: var(--crimson); }
+  @media (max-width: 800px) { .event-grid { grid-template-columns: 1fr; } }
 
-section{padding:clamp(80px,12vw,150px) 0}
-.sec-head{display:grid;gap:18px;margin-bottom:56px}
-.sec-head h2{font-size:clamp(2.6rem,8vw,5.4rem)}
-.sec-head p{color:var(--dim);max-width:520px}
+  /* Story Section */
+  .story { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--ivory); }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .story-image { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+  .story-image img { width: 100%; height: 100%; object-fit: cover; }
+  .story-image .jp-vertical {
+    position: absolute; top: 2rem; right: 1.5rem; writing-mode: vertical-rl;
+    font-family: var(--font-jp); font-size: 0.75rem; letter-spacing: 0.3em; color: var(--ivory);
+  }
+  .story-content { padding: 2rem 0; }
+  .story-content .label { color: var(--crimson); margin-bottom: 1.5rem; display: block; }
+  .story-content h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; margin-bottom: 2rem; }
+  .story-content h2 em { font-style: italic; color: var(--crimson); }
+  .story-content p { font-size: 1.05rem; line-height: 1.8; color: var(--grey); margin-bottom: 1.5rem; }
+  @media (max-width: 900px) { .story-grid { grid-template-columns: 1fr; } }
 
-.group{margin-bottom:100px}
-.group-title{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:16px;margin-bottom:44px;color:var(--ink)}
-.group-title::after{content:"";flex:1;height:1px;background:var(--line)}
-.group-title i{font-style:normal;color:var(--acid)}
+  /* Collection - Optimized */
+  .collection { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--white); }
+  .collection-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .collection-header .label { color: var(--crimson); margin-bottom: 1rem; display: block; }
+  .collection-header h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3.75rem); }
+  .chapters { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+  .chapter { position: relative; overflow: hidden; cursor: pointer; }
+  .chapter-image { position: relative; width: 100%; min-height: 420px; overflow: hidden; }
+  .chapter-image img { width: 100%; height: 100%; object-fit: cover; }
+  .chapter-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,23,23,0.1) 0%, rgba(23,23,23,0.55) 100%); }
+  .chapter-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; color: var(--ivory); z-index: 2; }
+  .chapter-num { font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.2em; color: var(--sand); margin-bottom: 0.5rem; }
+  .chapter h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.5rem, 2.5vw, 2.25rem); line-height: 1.1; margin-bottom: 0.5rem; }
+  .chapter-sub { font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: 1rem; color: #D4C9B0; margin-bottom: 1rem; }
+  .chapter p { font-size: 0.85rem; line-height: 1.6; color: rgba(243,239,230,0.85); max-width: 320px; }
+  .chapter-1 { grid-column: span 5; } .chapter-2 { grid-column: span 4; } .chapter-3 { grid-column: span 3; }
+  @media (max-width: 900px) {
+    .chapter-1, .chapter-2, .chapter-3 { grid-column: span 12; }
+    .chapter-image { min-height: 380px; }
+  }
 
-#work{background:var(--work-bg);color:var(--work-ink)}
-#work .eyebrow,#work .group-title i,#work .num,#work .steps b{color:var(--work-ink)}
-#work em{color:var(--work-ink);text-decoration:underline;text-decoration-color:var(--acid);text-decoration-thickness:.12em;text-underline-offset:.08em}
-#work .group:last-child{margin-bottom:0}
-#work .tag{border-color:var(--work-line);color:var(--work-dim)}
-#work .case{border-bottom-color:var(--work-line)}
-#work .steps li{border-top-color:var(--work-line)}
-#work .case-media{background:var(--work-line);border-color:var(--work-line)}
-#work .case-media img{object-position:top center}
+  /* Craftsmanship */
+  .craft { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--ink); color: var(--ivory); }
+  .craft-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .craft-header .label { color: var(--sand); margin-bottom: 1rem; display: block; }
+  .craft-header h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3.75rem); max-width: 700px; margin: 0 auto; }
+  .craft-header h2 em { font-style: italic; color: var(--crimson); }
+  .craft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .craft-image { aspect-ratio: 4/5; overflow: hidden; position: relative; }
+  .craft-image img { width: 100%; height: 100%; object-fit: cover; }
+  .craft-image .jp-tag {
+    position: absolute; bottom: 1.5rem; left: 1.5rem; font-family: var(--font-jp);
+    font-size: 0.75rem; letter-spacing: 0.2em; color: var(--ivory);
+    background: rgba(23,23,23,0.5); padding: 0.5rem 1rem;
+  }
+  .craft-points { display: flex; flex-direction: column; gap: 2.5rem; }
+  .craft-point { border-left: 1px solid rgba(243,239,230,0.2); padding-left: 1.5rem; }
+  .craft-point .label { color: var(--crimson); margin-bottom: 0.75rem; display: block; }
+  .craft-point h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .craft-point p { font-size: 0.95rem; color: #A8A39C; line-height: 1.7; }
+  @media (max-width: 900px) { .craft-grid { grid-template-columns: 1fr; } }
 
-.case{display:grid;gap:30px;align-items:start;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--line)}
-.case:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.case-media{position:relative;overflow:hidden;background:var(--media);border:1px solid var(--line);aspect-ratio:16/10;cursor:pointer}
-.case-media::after{content:"VIEW CASE";position:absolute;left:14px;bottom:14px;background:var(--acid);color:var(--acid-ink);padding:9px 14px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em;z-index:2;pointer-events:none}
-.case-media img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s ease}
-.case-media:hover img{transform:scale(1.05)}
-.num{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--acid);text-transform:uppercase}
-.case h3{font-size:clamp(2.2rem,6.5vw,3.8rem);margin:10px 0 14px}
-.case .desc{color:var(--dim);font-size:1.02rem}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0}
-.tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border:1px solid var(--line);color:var(--dim)}
-.steps{list-style:none;display:grid;gap:12px;margin:22px 0 28px}
-.steps li{display:grid;grid-template-columns:96px 1fr;gap:14px;font-size:.93rem;padding-top:12px;border-top:1px solid var(--line)}
-.steps b{font-family:var(--mono);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acid);padding-top:3px}
-.steps span{color:var(--dim)}
+  /* Donation */
+  .donate { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--ivory); }
+  .donate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .donate-content .label { color: var(--crimson); margin-bottom: 1rem; display: block; }
+  .donate-content h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; margin-bottom: 1.5rem; }
+  .donate-content h2 em { font-style: italic; color: var(--crimson); }
+  .donate-content p { font-size: 1rem; line-height: 1.8; color: var(--grey); margin-bottom: 2rem; }
+  .donate-amounts { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .amount-btn {
+    font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
+    padding: 0.9rem 1.5rem; border: 1px solid var(--ink); color: var(--ink);
+    background: transparent; transition: all 0.3s; cursor: pointer;
+  }
+  .amount-btn:hover { background: var(--ink); color: var(--ivory); }
+  .amount-btn.active { background: var(--crimson); border-color: var(--crimson); color: var(--ivory); }
+  .amount-custom {
+    flex: 1; min-width: 140px; font-family: var(--font-body); font-size: 0.9rem;
+    padding: 0.9rem 1rem; border: 1px solid rgba(23,23,23,0.2); background: var(--white);
+  }
+  .donate-note {
+    font-size: 0.78rem; color: var(--grey); line-height: 1.6; margin-bottom: 2rem;
+    padding: 1rem; background: rgba(184,169,139,0.12); border-left: 2px solid var(--sand);
+  }
+  .donate-image { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+  .donate-image img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 900px) {
+    .donate-grid { grid-template-columns: 1fr; }
+    .donate-image { order: -1; aspect-ratio: 16/10; }
+  }
 
-.grid{display:grid;gap:20px}
-.card{background:var(--card-bg);border:1px solid var(--line);padding:14px;transition:transform .35s,border-color .35s,box-shadow .35s}
-.card:hover{transform:translate(-3px,-3px);border-color:var(--acid);box-shadow:6px 6px 0 var(--acid)}
-.card .thumb{overflow:hidden;aspect-ratio:16/10;background:var(--thumb-bg);cursor:pointer;position:relative;border:1px solid var(--line)}
-.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s}
-.card:hover .thumb img{transform:scale(1.04)}
-.card-body{padding:20px 6px 8px}
-.card h3{font-size:1.7rem;margin-bottom:8px}
-.card p{color:var(--dim);font-size:.95rem}
-.card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  /* Tickets */
+  .tickets { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--white); }
+  .tickets-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .tickets-header .label { color: var(--crimson); margin-bottom: 1rem; display: block; }
+  .tickets-header h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3.75rem); }
+  .ticket-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .ticket-card { padding: 2.5rem 2rem; border: 1px solid rgba(23,23,23,0.1); background: var(--ivory); text-align: center; }
+  .ticket-card.featured { border-color: var(--crimson); background: var(--ink); color: var(--ivory); }
+  .ticket-card.featured .label { color: var(--sand); }
+  .ticket-card .label { color: var(--grey); margin-bottom: 1rem; display: block; }
+  .ticket-card h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; margin-bottom: 1rem; }
+  .ticket-price { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--crimson); margin-bottom: 0.5rem; }
+  .ticket-price span { font-size: 1rem; color: var(--grey); }
+  .ticket-card p { font-size: 0.85rem; color: var(--grey); line-height: 1.6; }
+  .booking { max-width: 720px; margin: 0 auto; padding: 3rem; background: var(--ivory); border: 1px solid rgba(23,23,23,0.1); }
+  .booking h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; margin-bottom: 2rem; text-align: center; }
+  .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  .field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .field.full { grid-column: span 2; }
+  .field label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
+  .field input, .field select {
+    font-family: var(--font-body); font-size: 0.95rem; padding: 0.9rem 1rem;
+    border: 1px solid rgba(23,23,23,0.15); background: var(--white);
+  }
+  .booking-summary {
+    padding: 1.25rem; background: var(--white); border: 1px solid rgba(23,23,23,0.1);
+    margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .booking-summary .label { color: var(--grey); }
+  .booking-summary strong { font-family: var(--font-display); font-size: 1.5rem; color: var(--crimson); }
+  .booking-note { font-size: 0.75rem; color: var(--grey); text-align: center; margin-top: 1rem; line-height: 1.6; }
+  @media (max-width: 700px) {
+    .ticket-types { grid-template-columns: 1fr; }
+    .booking { padding: 2rem 1.5rem; }
+    .booking-grid { grid-template-columns: 1fr; }
+  }
 
-.shop{display:grid;gap:34px;background:var(--acid);color:var(--acid-ink);padding:clamp(24px,5vw,60px);position:relative;border:1px solid var(--acid)}
-.shop .eyebrow{color:var(--acid-ink)}
-.shop .eyebrow::before{background:var(--acid-ink)}
-.shop h3{font-size:clamp(2.6rem,8vw,5rem)}
-.shop p{color:#2c2c22}
-.shop .tag{border-color:#b8d92e;color:#2c2c22}
-.shop .btn{border-color:var(--acid-ink);background:var(--acid-ink);color:var(--acid)}
-.shop .btn:hover{background:transparent;color:var(--acid-ink);box-shadow:4px 4px 0 var(--acid-ink)}
-.shop-frame{position:relative;border:10px solid var(--acid-ink);background:var(--acid-ink);overflow:hidden;aspect-ratio:4/4.6;cursor:pointer;box-shadow:14px 14px 0 rgba(10,10,10,.25)}
-.shop-frame img{width:100%;height:auto}
-.shop-frame::after{content:"AUTO-SCROLLING PREVIEW";position:absolute;left:12px;bottom:12px;background:var(--acid);color:var(--acid-ink);padding:7px 12px;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.14em}
+  /* FAQ */
+  .faq { padding: clamp(4rem, 10vw, 8rem) 0; background: var(--ivory); }
+  .faq-header { text-align: center; margin-bottom: clamp(3rem, 6vw, 5rem); }
+  .faq-header .label { color: var(--crimson); margin-bottom: 1rem; display: block; }
+  .faq-header h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.5vw, 3.75rem); }
+  .faq-list { max-width: 820px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid rgba(23,23,23,0.12); }
+  .faq-question {
+    width: 100%; text-align: left; padding: 1.5rem 0; display: flex;
+    justify-content: space-between; align-items: center; gap: 2rem;
+    font-family: var(--font-display); font-size: 1.2rem; font-weight: 400;
+  }
+  .faq-icon { flex-shrink: 0; width: 24px; height: 24px; position: relative; }
+  .faq-icon::before, .faq-icon::after {
+    content: ''; position: absolute; top: 50%; left: 50%; width: 14px; height: 1px; background: var(--ink);
+  }
+  .faq-icon::after { transform: translateX(-50%) translateY(-50%) rotate(90deg); }
+  .faq-item.open .faq-icon::after { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s, padding 0.3s; }
+  .faq-answer-inner { padding: 0 0 1.5rem; font-size: 0.95rem; line-height: 1.8; color: var(--grey); }
 
-#services{border-top:1px solid var(--line)}
-.services{display:grid;gap:16px}
-.service{display:flex;flex-direction:column;border:1px solid var(--line);padding:clamp(24px,3vw,36px);background:#101010;transition:transform .3s,border-color .3s,box-shadow .3s}
-.service:hover{transform:translate(-3px,-3px);border-color:var(--acid);box-shadow:6px 6px 0 var(--acid)}
-.service .snum{font-family:var(--mono);font-weight:700;font-size:clamp(2.6rem,6vw,4rem);color:var(--acid);line-height:1}
-.service h3{font-size:clamp(1.6rem,3vw,2.1rem);margin:22px 0 12px}
-.service p{color:var(--dim);margin-bottom:22px}
-.service ul{list-style:none;display:grid;gap:10px;margin-bottom:30px;flex:1}
-.service li{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;padding-top:10px;border-top:1px solid var(--line);display:flex;gap:10px}
-.service li::before{content:"→";color:var(--acid)}
+  /* Final CTA */
+  .final-cta {
+    position: relative; min-height: 80vh; background: var(--ink); color: var(--ivory);
+    display: flex; align-items: center; overflow: hidden;
+  }
+  .final-cta-image { position: absolute; inset: 0; z-index: 0; }
+  .final-cta-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); }
+  .final-cta-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,23,23,0.5) 0%, rgba(23,23,23,0.85) 100%); z-index: 1; }
+  .final-cta-content { position: relative; z-index: 2; text-align: center; padding: clamp(4rem, 10vw, 8rem) 0; width: 100%; }
+  .final-cta-content .label { color: var(--sand); margin-bottom: 1.5rem; display: block; }
+  .final-cta-content h2 { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.25rem, 6vw, 5rem); line-height: 1.05; margin-bottom: 1.5rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .final-cta-content h2 em { font-style: italic; color: var(--crimson); }
+  .final-cta-content p { font-size: 1.05rem; color: rgba(243,239,230,0.8); max-width: 520px; margin: 0 auto 3rem; line-height: 1.7; }
+  .final-cta-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-#skills{border-top:1px solid var(--line)}
-.skills{display:grid;gap:16px}
-.skill-box{border:1px solid var(--line);padding:30px;background:#101010;transition:border-color .3s}
-.skill-box:hover{border-color:var(--acid)}
-.skill-box h3{font-size:1.35rem;margin-bottom:20px;display:flex;gap:12px;align-items:center}
-.skill-box h3 i{font-style:normal;color:var(--acid);font-family:var(--mono);font-size:1rem}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;padding:9px 14px;border:1px solid var(--line);color:var(--dim);transition:.25s}
-.pill:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
+  /* Footer */
+  footer { background: var(--ink); color: var(--ivory); padding: clamp(3rem, 6vw, 5rem) 0 2rem; border-top: 1px solid rgba(243,239,230,0.1); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand { font-family: var(--font-display); font-size: 1.75rem; font-weight: 300; margin-bottom: 1rem; }
+  .footer-brand span { color: var(--crimson); }
+  .footer-desc { font-size: 0.85rem; color: #A8A39C; line-height: 1.7; max-width: 320px; }
+  .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); margin-bottom: 1.25rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .footer-col a { font-size: 0.88rem; color: var(--ivory); transition: color 0.3s; }
+  .footer-col a:hover { color: var(--crimson); }
+  .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(243,239,230,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.78rem; color: #A8A39C; }
+  .footer-note { font-size: 0.72rem; color: var(--grey); font-style: italic; margin-top: 1rem; text-align: center; }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
 
-.contact{text-align:center;border-top:1px solid var(--line)}
-.contact h2{font-size:clamp(3rem,13vw,9rem);margin:22px 0 34px}
-.contact .mail{font-weight:800;font-size:clamp(1.15rem,4.5vw,2.2rem);text-decoration:none;border-bottom:3px solid var(--acid);word-break:break-all;text-transform:lowercase;letter-spacing:-.01em}
-.contact .mail:hover{color:var(--acid)}
-.contact .row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:44px}
-footer{border-top:1px solid var(--line);padding:28px 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  /* Mobile Bar */
+  .mobile-bar {
+    display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+    background: var(--ink); color: var(--ivory); padding: 0.9rem 1rem;
+    justify-content: space-between; align-items: center; gap: 1rem;
+    border-top: 1px solid rgba(243,239,230,0.15);
+  }
+  .mobile-bar-text { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  .mobile-bar-text strong { display: block; font-size: 0.85rem; letter-spacing: 0; text-transform: none; margin-top: 0.2rem; }
+  .mobile-bar .btn { padding: 0.75rem 1.25rem; font-size: 0.68rem; }
+  @media (max-width: 700px) { .mobile-bar { display: flex; } body { padding-bottom: 70px; } }
 
-.lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,5,5,.95);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
-.lightbox.open{opacity:1;pointer-events:auto}
-.lb-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
-.lb-bar h4{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
-.lb-close{width:46px;height:46px;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer;flex-shrink:0}
-.lb-close:hover{background:var(--acid);color:var(--acid-ink);border-color:var(--acid)}
-.lb-scroll{flex:1;overflow-y:auto;padding:24px 12px 60px;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-.lb-scroll img{margin:0 auto;width:auto;max-width:min(1200px,100%);height:auto;border:1px solid var(--line)}
-.lb-scroll.wide img{max-width:min(1400px,100%)}
-
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1;transform:none}
-
-@media (min-width:760px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .skills{grid-template-columns:repeat(3,1fr)}
-  .services{grid-template-columns:repeat(3,1fr)}
-  .case{grid-template-columns:1.15fr 1fr;gap:60px}
-  .case:nth-child(even) .case-media{order:2}
-  .shop{grid-template-columns:1.1fr 1fr;align-items:center}
-}
-@media (min-width:960px){
-  .nav ul{display:flex}.burger{display:none}.nav-cta{display:inline-flex}
-  .mobile-menu{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0s!important;transition-duration:0s!important}
-  .reveal{opacity:1;transform:none}
-}
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    html { scroll-behavior: auto; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a href="#top" class="logo">Elina<span>&#169;</span></a>
-    <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
+<!-- Navigation -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand" aria-label="KIMONO exhibition home">KIMONO<span>/</span></a>
+    <ul class="nav-links">
+      <li><a href="#exhibition">The Exhibition</a></li>
+      <li><a href="#collection">The Collection</a></li>
+      <li><a href="#mission">Our Mission</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <!-- NEW: Visit Live Link -->
+      <li><a href="https://elinauiux-cloud.github.io/KIMONO/" target="_blank" rel="noopener" class="label" style="color: var(--crimson);">Visit Live →</a></li>
+      <li><a href="#tickets" class="nav-cta">Buy Tickets</a></li>
     </ul>
-    <a href="mailto:elina.uiux@gmail.com" class="btn btn-acid btn-sm nav-cta">Hire me</a>
-    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</header>
-
-<nav class="mobile-menu" aria-label="Mobile">
-  <a href="#work">Work</a>
-  <a href="#services">Services</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-  <a href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn</a>
 </nav>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">UI/UX &amp; Shopify Designer-Developer</span>
-      <h1>Hi, I'm Elina.<br/>I <span class="rotator" aria-live="polite"><span>design</span></span><br/>digital things.</h1>
-      <p class="lead">I turn research into sharp, human interfaces and build them into Shopify stores that sell — from Figma to a store that's ready to launch.</p>
-      <div class="hero-ctas">
-        <a href="#work" class="btn btn-acid">View my work</a>
-        <a href="mailto:elina.uiux@gmail.com" class="btn btn-ghost">Get in touch</a>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" style="display:none;" aria-hidden="true"></div>
+
+<!-- Hero Section -->
+<section class="hero" id="exhibition">
+  <div class="hero-image">
+    <!-- Optimized: Smaller size, fetchpriority for LCP -->
+    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80" 
+         alt="Three women in traditional Japanese kimono" 
+         fetchpriority="high" 
+         decoding="async"
+         loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <div class="hero-label">Kyoto, Japan · Culture / Textile / Art</div>
+    <h1 class="hero-title">
+      KIMONO
+      <span class="jp">着 物</span>
+    </h1>
+    <p class="hero-subtitle">The Art of Wearing Time</p>
+    <p class="hero-desc">An exploration of Japanese textile artistry, cultural symbolism, and the beauty woven into every thread.</p>
+
+    <div class="hero-meta">
+      <div>
+        <span class="label">Dates</span>
+        <strong>18 April — 30 June 2027</strong>
       </div>
-      <div class="hero-meta">
-        <span><span class="dot"></span>Available for new roles</span>
-        <span>Full-time &amp; freelance</span>
+      <div>
+        <span class="label">Location</span>
+        <strong>Kyoto, Japan</strong>
       </div>
     </div>
-  </section>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Shopify Development</span><span>UX Research</span><span>Figma to Shopify</span><span>Design Systems</span><span>Landing Pages</span><span>Prototyping</span><span>Liquid Sections</span><span>Mobile-First</span>
-      <span>Shopify Development</span><span>UX Research</span><span>Figma to Shopify</span><span>Design Systems</span><span>Landing Pages</span><span>Prototyping</span><span>Liquid Sections</span><span>Mobile-First</span>
+    <div class="hero-ctas">
+      <a href="#tickets" class="btn btn-primary">Buy Tickets →</a>
+      <!-- NEW: View Case Button -->
+      <a href="#" class="btn btn-secondary" onclick="alert('Case Study PDF will be downloaded here. Add your PDF link.'); return false;">View Case ↓</a>
+      <a href="#donate" class="btn btn-outline">Support</a>
     </div>
   </div>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">Selected work</span>
-        <h2>Things I've<br/><em>built</em> from scratch.</h2>
-        <p>Product case studies, landing pages and e-commerce. Tap any image to open the full presentation.</p>
+  <div class="scroll-indicator">Discover</div>
+</section>
+
+<!-- Event Info -->
+<section class="event-info" id="visit">
+  <div class="container">
+    <div class="event-header">
+      <span class="label">Essential Information</span>
+      <h2>A meeting of <em>tradition</em> and time.</h2>
+    </div>
+
+    <div class="event-grid">
+      <div class="event-card">
+        <span class="label">Dates</span>
+        <h3>18 April — 30 June 2027</h3>
+        <p>A twelve-week journey through centuries of Japanese textile heritage.</p>
       </div>
-
-      <div class="group">
-        <h3 class="group-title"><i>01 /</i> Case Studies</h3>
-
-        <article class="case reveal">
-          <div class="case-media" data-open="Pairbe.png" data-title="Pairbe">
-            <img src="Pairbe.png" alt="Pairbe case study" loading="lazy"/>
-          </div>
-          <div>
-            <span class="num">01 — Mobile app · Social</span>
-            <h3>Pairbe</h3>
-            <p class="desc">A social network app that uses geolocation and psychological tests to connect like-minded people nearby.</p>
-            <ul class="steps">
-              <li><b>Research</b><span>Interviews and personas showed that people want real connection, not endless swiping.</span></li>
-              <li><b>Solution</b><span>Personality tests plus location-based matching, wrapped in a warm and simple UI.</span></li>
-              <li><b>Outcome</b><span>A clickable prototype and a design system ready for development.</span></li>
-            </ul>
-            <div class="tags">
-              <span class="tag">User research</span><span class="tag">Personas</span><span class="tag">User flows</span><span class="tag">Mobile UI</span>
-            </div>
-            <button class="btn btn-acid btn-sm" data-open="Pairbe.png" data-title="Pairbe">Open case study</button>
-          </div>
-        </article>
-
-        <article class="case reveal">
-          <div class="case-media" data-open="Stufizz.png" data-title="Stufizz">
-            <img src="Stufizz.png" alt="Stufizz case study" loading="lazy"/>
-          </div>
-          <div>
-            <span class="num">02 — Web &amp; app · Marketplace</span>
-            <h3>Stufizz</h3>
-            <p class="desc">A bartering platform that lets users connect and trade items within their local communities.</p>
-            <ul class="steps">
-              <li><b>Research</b><span>Mapped how trust forms between strangers trading face to face.</span></li>
-              <li><b>Solution</b><span>Clear listings, swap offers and community profiles that build trust.</span></li>
-              <li><b>Outcome</b><span>A complete trading flow, from listing an item to a confirmed swap.</span></li>
-            </ul>
-            <div class="tags">
-              <span class="tag">Journey mapping</span><span class="tag">IA</span><span class="tag">Wireframes</span><span class="tag">Prototype</span>
-            </div>
-            <button class="btn btn-acid btn-sm" data-open="Stufizz.png" data-title="Stufizz">Open case study</button>
-          </div>
-        </article>
-
-        <article class="case reveal">
-          <div class="case-media" data-open="Inflow.png" data-title="Inflow Music">
-            <img src="Inflow.png" alt="Inflow Music case study" loading="lazy"/>
-          </div>
-          <div>
-            <span class="num">03 — Web3 · Music</span>
-            <h3>Inflow Music</h3>
-            <p class="desc">A social token platform that lets artists launch their own tokens and NFTs and build closer ties with fans.</p>
-            <ul class="steps">
-              <li><b>Research</b><span>Artists found crypto tools intimidating and fans didn't know what they were buying.</span></li>
-              <li><b>Solution</b><span>Plain-language token launches and fan-first artist pages.</span></li>
-              <li><b>Outcome</b><span>A simpler Web3 experience for both artists and fans.</span></li>
-            </ul>
-            <div class="tags">
-              <span class="tag">Web3 UX</span><span class="tag">Empathy maps</span><span class="tag">Dashboard</span><span class="tag">UI</span>
-            </div>
-            <button class="btn btn-acid btn-sm" data-open="Inflow.png" data-title="Inflow Music">Open case study</button>
-          </div>
-        </article>
-
-        <article class="case reveal">
-          <div class="case-media" data-open="Moody.png" data-title="Moody">
-            <img src="Moody.png" alt="Moody case study" loading="lazy"/>
-          </div>
-          <div>
-            <span class="num">04 — AI · Music player</span>
-            <h3>Moody</h3>
-            <p class="desc">An AI-native music player where a sentence replaces the search bar. Describe a feeling, get the perfect soundtrack.</p>
-            <ul class="steps">
-              <li><b>Research</b><span>People search for music by mood far more often than by title.</span></li>
-              <li><b>Solution</b><span>A conversational prompt plus mood-reactive visuals.</span></li>
-              <li><b>Outcome</b><span>A new kind of player, plus a dedicated landing page.</span></li>
-            </ul>
-            <div class="tags">
-              <span class="tag">AI UX</span><span class="tag">Concept</span><span class="tag">Interaction</span><span class="tag">UI</span>
-            </div>
-            <button class="btn btn-acid btn-sm" data-open="Moody.png" data-title="Moody">Open case study</button>
-          </div>
-        </article>
-
-        <article class="case reveal">
-          <div class="case-media" data-open="Cryptogate.png" data-title="CryptoGate">
-            <img src="Cryptogate.png" alt="CryptoGate case study" loading="lazy"/>
-          </div>
-          <div>
-            <span class="num">05 — Fintech · Crypto</span>
-            <h3>CryptoGate</h3>
-            <p class="desc">A secure, user-friendly platform for depositing and withdrawing crypto, built for beginners and experienced investors alike.</p>
-            <ul class="steps">
-              <li><b>Research</b><span>Beginners feared mistakes; experts wanted speed.</span></li>
-              <li><b>Solution</b><span>Step-by-step transactions with clear confirmations and trust signals.</span></li>
-              <li><b>Outcome</b><span>Confident, error-proof deposit and withdrawal flows.</span></li>
-            </ul>
-            <div class="tags">
-              <span class="tag">Fintech UX</span><span class="tag">Security flows</span><span class="tag">Design system</span><span class="tag">Responsive</span>
-            </div>
-            <button class="btn btn-acid btn-sm" data-open="Cryptogate.png" data-title="CryptoGate">Open case study</button>
-          </div>
-        </article>
+      <div class="event-card">
+        <span class="label">Opening Hours</span>
+        <h3>Tuesday – Sunday</h3>
+        <p><strong>10:00 – 18:00</strong><br/>Last admission: 17:30<br/><em>Closed Mondays</em></p>
       </div>
+      <div class="event-card">
+        <span class="label">Location</span>
+        <h3>Kyoto Art & Culture Museum</h3>
+        <p>Kyoto, Japan<br/>5 min walk from Gion-Shijō Station</p>
+      </div>
+    </div>
 
-      <div class="group">
-        <h3 class="group-title"><i>02 /</i> Landing Pages</h3>
-        <div class="grid">
+    <div class="event-footer">
+      <a href="#">Get Directions →</a>
+      <a href="#">Visitor Information</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</section>
 
-          <article class="card reveal">
-            <div class="thumb" data-open="Goblin.png" data-title="Space Goblin">
-              <img src="Goblin.png" alt="Space Goblin landing page" loading="lazy"/>
-            </div>
-            <div class="card-body">
-              <h3>Space Goblin</h3>
-              <p>An NFT digital art project introducing a unique collection of character cards.</p>
-              <div class="tags">
-                <span class="tag">NFT</span><span class="tag">Landing page</span><span class="tag">Illustration</span>
-              </div>
-              <div class="card-actions">
-                <button class="btn btn-ghost btn-sm" data-open="Goblin.png" data-title="Space Goblin">Preview</button>
-              </div>
-            </div>
-          </article>
+<!-- Story Section -->
+<section class="story" id="mission">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-image">
+        <!-- Optimized image -->
+        <img src="https://images.unsplash.com/photo-1580019542155-247062e19ce4?w=800&q=80" 
+             alt="Pale yellow kimono in museum display" 
+             loading="lazy" 
+             decoding="async" />
+        <span class="jp-vertical" aria-hidden="true">時を纏う芸術</span>
+      </div>
+      <div class="story-content">
+        <span class="label">The Story</span>
+        <h2>More than a garment. A <em>living archive.</em></h2>
+        <p>For centuries, the kimono has carried stories through silk, color, pattern, and form. Every detail reflects a dialogue between nature, craftsmanship, identity, and time.</p>
+        <p>This exhibition invites you to look beyond the garment and discover the stories woven into it.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <article class="card reveal">
-            <div class="thumb" data-open="Moody.png" data-title="Moody">
-              <img src="Moody.png" alt="Moody landing page" loading="lazy"/>
-            </div>
-            <div class="card-body">
-              <h3>Moody</h3>
-              <p>The landing page for Moody, the AI-native music player.</p>
-              <div class="tags">
-                <span class="tag">AI</span><span class="tag">Landing page</span><span class="tag">Live</span>
-              </div>
-              <div class="card-actions">
-                <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/Moody_Landing-Page/" target="_blank" rel="noopener">Visit live</a>
-                <button class="btn btn-ghost btn-sm" data-open="Moody.png" data-title="Moody">Preview</button>
-              </div>
-            </div>
-          </article>
+<!-- Collection -->
+<section class="collection" id="collection">
+  <div class="container">
+    <div class="collection-header">
+      <span class="label">The Collection</span>
+      <h2>Three chapters. Centuries of stories.</h2>
+    </div>
 
-          <article class="card reveal">
-            <div class="thumb">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='100%25' height='100%25' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='24' fill='%23666'%3EKIMONO%3C/text%3E%3C/svg%3E" alt="KIMONO landing page" loading="lazy"/>
-            </div>
-            <div class="card-body">
-              <h3>KIMONO</h3>
-              <p>An exhibition of Japanese textile artistry, cultural symbolism and the beauty woven into every thread.</p>
-              <div class="tags">
-                <span class="tag">Culture</span><span class="tag">Exhibition</span><span class="tag">Live</span>
-              </div>
-              <div class="card-actions">
-                <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/KIMONO/" target="_blank" rel="noopener">Visit live</a>
-              </div>
-            </div>
-          </article>
+    <div class="chapters">
+      <article class="chapter chapter-1">
+        <div class="chapter-image">
+          <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?w=800&q=80" 
+               alt="Green kimono with floral embroidery" 
+               loading="lazy" 
+               decoding="async" />
+        </div>
+        <div class="chapter-content">
+          <div class="chapter-num">CHAPTER 01</div>
+          <h3>Tradition</h3>
+          <div class="chapter-sub">The language of form</div>
+          <p>Explore the heritage, silhouettes, and ceremonial significance.</p>
+        </div>
+      </article>
 
-          <article class="card reveal">
-            <div class="thumb" data-open="Subliminator.png" data-title="Subliminator">
-              <img src="Subliminator.png" alt="Subliminator landing page" loading="lazy"/>
-            </div>
-            <div class="card-body">
-              <h3>Subliminator</h3>
-              <p>A print-on-demand and dropshipping platform for designing and selling custom all-over-print apparel and home goods.</p>
-              <div class="tags">
-                <span class="tag">E-commerce</span><span class="tag">POD</span><span class="tag">Landing page</span>
-              </div>
-              <div class="card-actions">
-                <button class="btn btn-ghost btn-sm" data-open="Subliminator.png" data-title="Subliminator">Preview</button>
-              </div>
-            </div>
-          </article>
+      <article class="chapter chapter-2">
+        <div class="chapter-image">
+          <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80" 
+               alt="Floral embroidery detail" 
+               loading="lazy" 
+               decoding="async" />
+        </div>
+        <div class="chapter-content">
+          <div class="chapter-num">CHAPTER 02</div>
+          <h3>Nature</h3>
+          <div class="chapter-sub">A season woven in silk</div>
+          <p>Discover floral motifs and natural symbolism.</p>
+        </div>
+      </article>
 
+      <article class="chapter chapter-3">
+        <div class="chapter-image">
+          <img src="https://images.unsplash.com/photo-1583244532610-2a23e5f23982?w=800&q=80" 
+               alt="Colorful kimonos with obi" 
+               loading="lazy" 
+               decoding="async" />
+        </div>
+        <div class="chapter-content">
+          <div class="chapter-num">CHAPTER 03</div>
+          <h3>Reinvention</h3>
+          <div class="chapter-sub">Heritage in a new light</div>
+          <p>Contemporary influence on fashion and art.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Craftsmanship -->
+<section class="craft">
+  <div class="container">
+    <div class="craft-header">
+      <span class="label">Craftsmanship</span>
+      <h2>Every thread holds a <em>story.</em></h2>
+    </div>
+
+    <div class="craft-grid">
+      <div class="craft-image">
+        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80" 
+             alt="Traditional embroidery detail" 
+             loading="lazy" 
+             decoding="async" />
+        <span class="jp-tag" aria-hidden="true">職人の技</span>
+      </div>
+      <div class="craft-points">
+        <div class="craft-point">
+          <span class="label">01 — Weaving</span>
+          <h3>The structure behind the surface.</h3>
+          <p>From raw silk to finished textile, the loom becomes an instrument of patience.</p>
+        </div>
+        <div class="craft-point">
+          <span class="label">02 — Dyeing</span>
+          <h3>Color shaped through process.</h3>
+          <p>Natural pigments and resist techniques create depths of color.</p>
+        </div>
+        <div class="craft-point">
+          <span class="label">03 — Embroidery</span>
+          <h3>Details that transform fabric.</h3>
+          <p>Gold thread and silk floss elevate textile into storytelling.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="shopify">
-    <div class="wrap">
-      <div class="group">
-        <h3 class="group-title"><i>03 /</i> Shopify Store</h3>
-        <div class="shop reveal">
-          <div>
-            <span class="eyebrow">Shopify · Women's activewear</span>
-            <h3 style="margin:16px 0 18px">Neverlate</h3>
-            <p>Neverlate creates women's activewear for fitness, yoga, Pilates, running, dance and everyday movement — combining thoughtful design, functionality and contemporary style.</p>
-            <div class="tags">
-              <span class="tag">Store setup</span><span class="tag">Theme customization</span><span class="tag">Liquid sections</span><span class="tag">Product pages</span><span class="tag">Mobile-first</span><span class="tag">App integration</span>
-            </div>
-            <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store</button>
-          </div>
-          <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store">
-            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy"/>
-          </div>
+<!-- Donation -->
+<section class="donate" id="donate">
+  <div class="container">
+    <div class="donate-grid">
+      <div class="donate-content">
+        <span class="label">Support the Craft</span>
+        <h2>Help preserve what <em>time</em> cannot replace.</h2>
+        <p>Traditional textile techniques carry generations of knowledge. Your support helps sustain craft education and conservation.</p>
+
+        <div class="donate-amounts">
+          <button class="amount-btn" data-amount="1000">¥1,000</button>
+          <button class="amount-btn active" data-amount="3000">¥3,000</button>
+          <button class="amount-btn" data-amount="5000">¥5,000</button>
+          <input type="number" class="amount-custom" placeholder="Custom (¥)" min="100" />
         </div>
+
+        <div class="donate-note">
+          Contributions support textile conservation and artisan education. This is a demo interface.
+        </div>
+
+        <button class="btn btn-primary" id="donateBtn">Make a Donation →</button>
+      </div>
+
+      <div class="donate-image">
+        <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?w=800&q=80" 
+             alt="Artisan hands working on textile" 
+             loading="lazy" 
+             decoding="async" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">What I offer</span>
-        <h2>Services</h2>
+<!-- Tickets -->
+<section class="tickets" id="tickets">
+  <div class="container">
+    <div class="tickets-header">
+      <span class="label">Plan Your Visit</span>
+      <h2>Your journey begins in Kyoto.</h2>
+    </div>
+
+    <div class="ticket-types">
+      <div class="ticket-card">
+        <span class="label">Standard</span>
+        <h3>General Admission</h3>
+        <div class="ticket-price">¥2,000</div>
+        <p>Full access to all exhibition chapters.</p>
       </div>
-      <div class="services">
-        <article class="service reveal">
-          <span class="snum">01</span>
-          <h3>Shopify store setup</h3>
-          <p>A store that looks like your brand and is ready to sell, from first sketch to launch day.</p>
-          <ul>
-            <li>Store setup &amp; theme customization</li>
-            <li>Custom Liquid sections</li>
-            <li>Figma to Shopify builds</li>
-            <li>App integration</li>
-            <li>Product page optimization</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-sm">Let's talk</a>
-        </article>
-        <article class="service reveal">
-          <span class="snum">02</span>
-          <h3>UX research &amp; strategy</h3>
-          <p>Clear answers about your users before a single screen is designed.</p>
-          <ul>
-            <li>User research &amp; personas</li>
-            <li>Empathy mapping</li>
-            <li>Customer journey maps</li>
-            <li>User flows</li>
-            <li>Information architecture</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-sm">Let's talk</a>
-        </article>
-        <article class="service reveal">
-          <span class="snum">03</span>
-          <h3>UI design &amp; landing pages</h3>
-          <p>Sharp, responsive interfaces and landing pages built to convert.</p>
-          <ul>
-            <li>Wireframes &amp; prototypes</li>
-            <li>UI design &amp; design systems</li>
-            <li>Responsive web design</li>
-            <li>Conversion-focused landing pages</li>
-          </ul>
-          <a href="#contact" class="btn btn-ghost btn-sm">Let's talk</a>
-        </article>
+      <div class="ticket-card featured">
+        <span class="label">Recommended</span>
+        <h3>Guided Tour</h3>
+        <div class="ticket-price">¥3,500</div>
+        <p>90-minute guided experience with historian.</p>
+      </div>
+      <div class="ticket-card">
+        <span class="label">Concession</span>
+        <h3>Student</h3>
+        <div class="ticket-price">¥1,200</div>
+        <p>Valid student ID required.</p>
       </div>
     </div>
-  </section>
 
-  <section id="skills">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow">What I bring</span>
-        <h2>Skills &amp; <em>tools</em></h2>
+    <div class="booking">
+      <h3>Reserve Your Visit</h3>
+      <form id="bookingForm">
+        <div class="booking-grid">
+          <div class="field">
+            <label for="visitDate">Visit Date</label>
+            <input type="date" id="visitDate" required min="2027-04-18" max="2027-06-30" />
+          </div>
+          <div class="field">
+            <label for="timeSlot">Time Slot</label>
+            <select id="timeSlot" required>
+              <option value="">Select time</option>
+              <option>10:00</option><option>11:30</option><option>13:00</option>
+              <option>14:30</option><option>16:00</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ticketType">Ticket Type</label>
+            <select id="ticketType" required>
+              <option value="2000">General — ¥2,000</option>
+              <option value="3500">Guided Tour — ¥3,500</option>
+              <option value="1200">Student — ¥1,200</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="quantity">Quantity</label>
+            <select id="quantity" required>
+              <option value="1">1 person</option><option value="2">2 people</option>
+              <option value="3">3 people</option><option value="4">4 people</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-summary">
+          <div><div class="label">Estimated Total</div><strong id="totalPrice">¥2,000</strong></div>
+          <button type="submit" class="btn btn-primary">Continue →</button>
+        </div>
+
+        <p class="booking-note">Demo only. No actual booking processed.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="label">Practical Information</span>
+      <h2>Questions & Answers</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Where is the exhibition located?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Kyoto Art & Culture Museum, 5 min from Gion-Shijō Station.</div></div>
       </div>
-      <div class="skills">
-        <div class="skill-box reveal">
-          <h3><i>[01]</i> Shopify &amp; E-commerce</h3>
-          <div class="pills">
-            <span class="pill">Store Setup</span><span class="pill">Theme Customization</span><span class="pill">Liquid Sections</span><span class="pill">Figma to Shopify</span><span class="pill">Store Redesign</span><span class="pill">Product Optimization</span><span class="pill">App Integration</span><span class="pill">Mobile-First</span>
-          </div>
-        </div>
-        <div class="skill-box reveal">
-          <h3><i>[02]</i> UI/UX &amp; Product</h3>
-          <div class="pills">
-            <span class="pill">User Research</span><span class="pill">Personas</span><span class="pill">Empathy Mapping</span><span class="pill">Journey Maps</span><span class="pill">User Flows</span><span class="pill">Information Architecture</span><span class="pill">Wireframing</span><span class="pill">UI Design</span><span class="pill">Design Systems</span><span class="pill">Responsive Design</span>
-          </div>
-        </div>
-        <div class="skill-box reveal">
-          <h3><i>[03]</i> Tools</h3>
-          <div class="pills">
-            <span class="pill">Figma</span><span class="pill">Adobe XD</span><span class="pill">Photoshop</span><span class="pill">Illustrator</span><span class="pill">Overflow</span><span class="pill">Shopify</span><span class="pill">Lovable</span><span class="pill">Claude</span>
-          </div>
-        </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>What are the opening hours?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tuesday–Sunday, 10:00–18:00. Closed Mondays.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How can I buy tickets?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Online through this website or at the museum box office.</div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <span class="eyebrow reveal">Open to full-time &amp; freelance</span>
-      <h2 class="reveal">Let's work <em>together.</em></h2>
-      <a class="mail reveal" href="mailto:elina.uiux@gmail.com">elina.uiux@gmail.com</a>
-      <div class="row reveal">
-        <a class="btn btn-acid" href="mailto:elina.uiux@gmail.com">Email me</a>
-        <a class="btn btn-ghost" href="https://t.me/elinavardanyan" target="_blank" rel="noopener">Telegram</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/elinvard/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="final-cta-image">
+    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80" 
+         alt="Kimono silhouette" 
+         loading="lazy" 
+         decoding="async" />
+  </div>
+  <div class="final-cta-overlay"></div>
+
+  <div class="container final-cta-content">
+    <span class="label">A Final Invitation</span>
+    <h2>Some stories are meant to be <em>preserved.</em></h2>
+    <p>Discover the artistry, symbolism, and enduring beauty of the kimono.</p>
+    <div class="final-cta-ctas">
+      <a href="#tickets" class="btn btn-primary">Book Your Visit →</a>
+      <a href="#donate" class="btn btn-secondary">Support the Art</a>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
+<!-- Footer -->
 <footer>
-  <div class="wrap">
-    <span>&#169; <span id="yr">2026</span> Elina Vardanyan</span>
-    <span>Telegram — @elinavardanyan</span>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">KIMONO<span>/</span></div>
+        <p class="footer-desc">The Art of Wearing Time. A cultural exhibition at Kyoto Art & Culture Museum.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#visit">Plan Your Visit</a></li>
+          <li><a href="#tickets">Buy Tickets</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#collection">The Collection</a></li>
+          <li><a href="#mission">Our Mission</a></li>
+          <li><a href="#donate">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">hello@kimono-exhibit.jp</a></li>
+          <li><a href="#">Instagram ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2027 KIMONO Exhibition. All rights reserved.</div>
+      <div>Kyoto, Japan</div>
+    </div>
+    <p class="footer-note">This is a fictional exhibition concept created as a portfolio demonstration.</p>
   </div>
 </footer>
 
-<div class="lightbox" role="dialog" aria-modal="true" aria-label="Project preview">
-  <div class="lb-bar">
-    <h4></h4>
-    <button class="lb-close" aria-label="Close">✕</button>
-  </div>
-  <div class="lb-scroll"><img alt=""/></div>
+<!-- Mobile Bar -->
+<div class="mobile-bar">
+  <div class="mobile-bar-text">Kyoto · 18 Apr – 30 Jun<strong>From ¥1,200</strong></div>
+  <a href="#tickets" class="btn btn-primary">Book →</a>
 </div>
 
 <script>
-(function(){
-  'use strict';
-
-  // CRITICAL: Reset body styles on load to prevent stuck scroll-lock after refresh
-  window.addEventListener('DOMContentLoaded', function(){
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    document.body.style.overflow = '';
-  });
-
-  // Rotator
-  var rot = ['design','build','launch','research','ship'];
-  var ri = 0;
-  var rotEl = document.querySelector('.rotator');
-  if(rotEl){
-    setInterval(function(){
-      ri = (ri+1) % rot.length;
-      rotEl.innerHTML = '<span>' + rot[ri] + '</span>';
-    }, 2200);
-  }
-
-  // Menu
-  var burger = document.querySelector('.burger');
-  if(burger){
-    burger.addEventListener('click', function(){
-      var isOpen = document.body.classList.toggle('menu-open');
-      burger.setAttribute('aria-expanded', isOpen);
-    });
-  }
-  var mobileLinks = document.querySelectorAll('.mobile-menu a');
-  for(var i=0;i<mobileLinks.length;i++){
-    mobileLinks[i].addEventListener('click', function(){
-      document.body.classList.remove('menu-open');
-    });
-  }
-
-  // Image fallback
-  document.addEventListener('error', function(e){
-    var img = e.target;
-    if(img.tagName !== 'IMG' || img.dataset.fb) return;
-    img.dataset.fb = '1';
-    var src = img.getAttribute('src') || '';
-    if(/\.webp$/i.test(src)) img.src = src.replace(/\.webp$/i,'.png');
-    else if(/\.png$/i.test(src)) img.src = src.replace(/\.png$/i,'.webp');
-  }, true);
-
-  // Lightbox with Safari-proof scroll lock
-  var lb = document.querySelector('.lightbox');
-  var lbImg = lb ? lb.querySelector('img') : null;
-  var lbScroll = lb ? lb.querySelector('.lb-scroll') : null;
-  var lbTitle = lb ? lb.querySelector('h4') : null;
-  var savedScrollY = 0;
-
-  function lockScroll(){
-    savedScrollY = window.scrollY || window.pageYOffset;
-    document.body.style.position = 'fixed';
-    document.body.style.top = '-' + savedScrollY + 'px';
-    document.body.style.width = '100%';
-  }
-
-  function unlockScroll(){
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.width = '';
-    window.scrollTo(0, savedScrollY);
-  }
-
-  function openLb(el){
-    if(!el || !el.dataset.open) return;
-    if(!lbImg) return;
-    lockScroll();
-    lbImg.dataset.fb = '';
-    lbImg.src = el.dataset.open;
-    lbImg.alt = el.dataset.title || '';
-    if(lbTitle) lbTitle.textContent = el.dataset.title || '';
-    if(lbScroll){
-      lbScroll.classList.toggle('wide', !!el.dataset.wide);
-      lbScroll.scrollTop = 0;
+  // Optimized JavaScript - Reduced and deferred
+  
+  // Navigation scroll
+  const nav = document.getElementById('nav');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+        ticking = false;
+      });
+      ticking = true;
     }
-    lb.classList.add('open');
-  }
+  }, { passive: true });
 
-  function closeLb(){
-    if(!lb) return;
-    lb.classList.remove('open');
-    unlockScroll();
-  }
-
-  document.addEventListener('click', function(e){
-    var t = e.target.closest('[data-open]');
-    if(t) openLb(t);
+  // Mobile menu (simplified)
+  const navToggle = document.getElementById('navToggle');
+  navToggle.addEventListener('click', () => {
+    alert('Mobile menu - Add your mobile menu implementation here');
   });
 
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeLb();
-    if(e.key === 'Enter' && e.target.matches && e.target.matches('[data-open]')) openLb(e.target);
-  });
-
-  var lbClose = lb ? lb.querySelector('.lb-close') : null;
-  if(lbClose) lbClose.addEventListener('click', closeLb);
-  if(lb){
-    lb.addEventListener('click', function(e){
-      if(e.target === lb || e.target === lbScroll) closeLb();
-    });
-  }
-
-  // Reveal on scroll
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      for(var j=0;j<entries.length;j++){
-        if(entries[j].isIntersecting){
-          entries[j].target.classList.add('in');
-          io.unobserve(entries[j].target);
-        }
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+      
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+      
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
       }
-    }, {threshold: 0.12});
-    var reveals = document.querySelectorAll('.reveal');
-    for(var k=0;k<reveals.length;k++) io.observe(reveals[k]);
-  } else {
-    var allReveals = document.querySelectorAll('.reveal');
-    for(var m=0;m<allReveals.length;m++) allReveals[m].classList.add('in');
-  }
+    });
+  });
 
-  // Year
-  var yrEl = document.getElementById('yr');
-  if(yrEl) yrEl.textContent = new Date().getFullYear();
-})();
+  // Donation selector
+  let selectedAmount = 3000;
+  document.querySelectorAll('.amount-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedAmount = parseInt(btn.dataset.amount);
+    });
+  });
+
+  document.getElementById('donateBtn').addEventListener('click', () => {
+    alert(`Donation: ¥${selectedAmount.toLocaleString()}\n\nDemo only - no payment processed.`);
+  });
+
+  // Booking form
+  const ticketType = document.getElementById('ticketType');
+  const quantity = document.getElementById('quantity');
+  const totalPrice = document.getElementById('totalPrice');
+  
+  const updateTotal = () => {
+    const price = parseInt(ticketType.value) || 0;
+    const qty = parseInt(quantity.value) || 1;
+    totalPrice.textContent = '¥' + (price * qty).toLocaleString();
+  };
+  
+  ticketType.addEventListener('change', updateTotal);
+  quantity.addEventListener('change', updateTotal);
+
+  document.getElementById('bookingForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Booking submitted (Demo only)');
+  });
 </script>
+
 </body>
 </html>
