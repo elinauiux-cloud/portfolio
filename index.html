@@ -19,7 +19,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+img{max-width:100%;display:block;height:auto}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
 h1,h2,h3{font-weight:900;line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
@@ -255,7 +255,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Pairbe.png" data-title="Pairbe">
-            <img src="Pairbe.png" alt="Pairbe case study" loading="lazy"/>
+            <img src="Pairbe.png" alt="Pairbe case study" width="800" height="500" loading="eager" decoding="async"/>
           </div>
           <div>
             <span class="num">01 — Mobile app · Social</span>
@@ -275,7 +275,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Stufizz.png" data-title="Stufizz">
-            <img src="Stufizz.png" alt="Stufizz case study" loading="lazy"/>
+            <img src="Stufizz.png" alt="Stufizz case study" width="800" height="500" loading="eager" decoding="async"/>
           </div>
           <div>
             <span class="num">02 — Web &amp; app · Marketplace</span>
@@ -295,7 +295,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Inflow.png" data-title="Inflow Music">
-            <img src="Inflow.png" alt="Inflow Music case study" loading="lazy"/>
+            <img src="Inflow.png" alt="Inflow Music case study" width="800" height="500" loading="lazy" decoding="async"/>
           </div>
           <div>
             <span class="num">03 — Web3 · Music</span>
@@ -315,7 +315,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Moody.png" data-title="Moody">
-            <img src="Moody.png" alt="Moody case study" loading="lazy"/>
+            <img src="Moody.png" alt="Moody case study" width="800" height="500" loading="lazy" decoding="async"/>
           </div>
           <div>
             <span class="num">04 — AI · Music player</span>
@@ -335,7 +335,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Cryptogate.png" data-title="CryptoGate">
-            <img src="Cryptogate.png" alt="CryptoGate case study" loading="lazy"/>
+            <img src="Cryptogate.png" alt="CryptoGate case study" width="800" height="500" loading="lazy" decoding="async"/>
           </div>
           <div>
             <span class="num">05 — Fintech · Crypto</span>
@@ -360,7 +360,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
           <article class="card reveal">
             <div class="thumb" data-open="Goblin.png" data-title="Space Goblin">
-              <img src="Goblin.png" alt="Space Goblin landing page" loading="lazy"/>
+              <img src="Goblin.png" alt="Space Goblin landing page" width="800" height="500" loading="lazy" decoding="async"/>
             </div>
             <div class="card-body">
               <h3>Space Goblin</h3>
@@ -376,7 +376,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
           <article class="card reveal">
             <div class="thumb" data-open="Moody.png" data-title="Moody">
-              <img src="Moody.png" alt="Moody landing page" loading="lazy"/>
+              <img src="Moody.png" alt="Moody landing page" width="800" height="500" loading="lazy" decoding="async"/>
             </div>
             <div class="card-body">
               <h3>Moody</h3>
@@ -392,8 +392,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           </article>
 
           <article class="card reveal">
-            <div class="thumb">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='100%25' height='100%25' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='24' fill='%23666'%3EKIMONO%3C/text%3E%3C/svg%3E" alt="KIMONO landing page" loading="lazy"/>
+            <div class="thumb" data-title="KIMONO">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'%3E%3Crect width='100%25' height='100%25' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='24' fill='%23666'%3EKIMONO%3C/text%3E%3C/svg%3E" alt="KIMONO landing page" width="800" height="500" loading="lazy" decoding="async"/>
             </div>
             <div class="card-body">
               <h3>KIMONO</h3>
@@ -403,13 +403,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
               </div>
               <div class="card-actions">
                 <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/KIMONO/" target="_blank" rel="noopener">Visit live</a>
+                <button class="btn btn-ghost btn-sm" data-open="https://elinauiux-cloud.github.io/KIMONO/" data-title="KIMONO — Live Preview">View Case</button>
               </div>
             </div>
           </article>
 
           <article class="card reveal">
             <div class="thumb" data-open="Subliminator.png" data-title="Subliminator">
-              <img src="Subliminator.png" alt="Subliminator landing page" loading="lazy"/>
+              <img src="Subliminator.png" alt="Subliminator landing page" width="800" height="500" loading="lazy" decoding="async"/>
             </div>
             <div class="card-body">
               <h3>Subliminator</h3>
@@ -443,7 +444,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
             <button class="btn" data-open="Neverlate.png" data-title="Neverlate — Shopify store">View the store</button>
           </div>
           <div class="shop-frame" data-open="Neverlate.png" data-title="Neverlate — Shopify store">
-            <img src="Neverlate.png" alt="Neverlate Shopify store preview" loading="lazy"/>
+            <img src="Neverlate.png" alt="Neverlate Shopify store preview" width="600" height="690" loading="lazy" decoding="async"/>
           </div>
         </div>
       </div>
@@ -554,14 +555,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <h4></h4>
     <button class="lb-close" aria-label="Close">✕</button>
   </div>
-  <div class="lb-scroll"><img alt=""/></div>
+  <div class="lb-scroll"><img alt="" decoding="async"/></div>
 </div>
 
 <script>
 (function(){
   'use strict';
 
-  // CRITICAL: Reset body styles on load to prevent stuck scroll-lock after refresh
   window.addEventListener('DOMContentLoaded', function(){
     document.body.style.position = '';
     document.body.style.top = '';
@@ -569,7 +569,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     document.body.style.overflow = '';
   });
 
-  // Rotator
   var rot = ['design','build','launch','research','ship'];
   var ri = 0;
   var rotEl = document.querySelector('.rotator');
@@ -580,7 +579,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     }, 2200);
   }
 
-  // Menu
   var burger = document.querySelector('.burger');
   if(burger){
     burger.addEventListener('click', function(){
@@ -595,7 +593,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     });
   }
 
-  // Image fallback
   document.addEventListener('error', function(e){
     var img = e.target;
     if(img.tagName !== 'IMG' || img.dataset.fb) return;
@@ -605,7 +602,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     else if(/\.png$/i.test(src)) img.src = src.replace(/\.png$/i,'.webp');
   }, true);
 
-  // Lightbox with Safari-proof scroll lock
   var lb = document.querySelector('.lightbox');
   var lbImg = lb ? lb.querySelector('img') : null;
   var lbScroll = lb ? lb.querySelector('.lb-scroll') : null;
@@ -629,6 +625,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   function openLb(el){
     if(!el || !el.dataset.open) return;
     if(!lbImg) return;
+    
+    // Check if it's a URL (live preview) or image
+    if(el.dataset.open.indexOf('http') === 0){
+      window.open(el.dataset.open, '_blank');
+      return;
+    }
+    
     lockScroll();
     lbImg.dataset.fb = '';
     lbImg.src = el.dataset.open;
@@ -665,7 +668,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     });
   }
 
-  // Reveal on scroll
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       for(var j=0;j<entries.length;j++){
@@ -682,7 +684,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     for(var m=0;m<allReveals.length;m++) allReveals[m].classList.add('in');
   }
 
-  // Year
   var yrEl = document.getElementById('yr');
   if(yrEl) yrEl.textContent = new Date().getFullYear();
 })();
