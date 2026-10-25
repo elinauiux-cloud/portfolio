@@ -72,7 +72,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid va
 .ticker{background:var(--acid);color:var(--acid-ink);padding:16px 0;overflow:hidden;border-block:1px solid var(--acid)}
 .ticker-track{display:flex;width:max-content;animation:scroll 32s linear infinite}
 .ticker-track span{font-weight:900;font-size:clamp(1.1rem,2.6vw,1.7rem);text-transform:uppercase;letter-spacing:-.01em;padding:0 20px;white-space:nowrap}
-.ticker-track span::after{content:"✦";margin-left:40px}
+.ticker-track span::after{content:"";margin-left:40px}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
 section{padding:clamp(80px,12vw,150px) 0}
@@ -255,7 +255,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Pairbe.png" data-title="Pairbe">
-            <img src="Pairbe.png" alt="Pairbe case study" width="800" height="500" loading="eager" decoding="async"/>
+            <img src="Pairbe.png" alt="Pairbe case study" width="800" height="500" loading="eager" fetchpriority="high" decoding="async"/>
           </div>
           <div>
             <span class="num">01 — Mobile app · Social</span>
@@ -275,7 +275,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
         <article class="case reveal">
           <div class="case-media" data-open="Stufizz.png" data-title="Stufizz">
-            <img src="Stufizz.png" alt="Stufizz case study" width="800" height="500" loading="eager" decoding="async"/>
+            <img src="Stufizz.png" alt="Stufizz case study" width="800" height="500" loading="eager" fetchpriority="high" decoding="async"/>
           </div>
           <div>
             <span class="num">02 — Web &amp; app · Marketplace</span>
@@ -375,8 +375,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           </article>
 
           <article class="card reveal">
-            <div class="thumb" data-open="MOODY_Landing%20Page.png" data-title="MOODY Landing Page">
-              <img src="MOODY_Landing%20Page.png" alt="MOODY landing page" width="800" height="500" loading="lazy" decoding="async"/>
+            <div class="thumb" data-open="MOODY-Landing-Page.png" data-title="MOODY Landing Page">
+              <img src="MOODY-Landing-Page.png" alt="MOODY landing page" width="800" height="500" loading="lazy" decoding="async"/>
             </div>
             <div class="card-body">
               <h3>MOODY — Landing Page</h3>
@@ -386,7 +386,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
               </div>
               <div class="card-actions">
                 <a class="btn btn-acid btn-sm" href="https://elinauiux-cloud.github.io/Moody_Landing-Page/" target="_blank" rel="noopener">Visit live</a>
-                <button class="btn btn-ghost btn-sm" data-open="MOODY_Landing%20Page.png" data-title="MOODY Landing Page">Preview</button>
+                <button class="btn btn-ghost btn-sm" data-open="MOODY-Landing-Page.png" data-title="MOODY Landing Page">Preview</button>
               </div>
             </div>
           </article>
@@ -625,13 +625,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   function openLb(el){
     if(!el || !el.dataset.open) return;
     if(!lbImg) return;
-    
-    // Check if it's a URL (live preview) or image
     if(el.dataset.open.indexOf('http') === 0){
       window.open(el.dataset.open, '_blank');
       return;
     }
-    
     lockScroll();
     lbImg.dataset.fb = '';
     lbImg.src = el.dataset.open;
